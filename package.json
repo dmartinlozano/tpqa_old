@@ -1,0 +1,17 @@
+{
+  "name": "tpqa",
+  "main": "server.js",
+  "version": "0.0.1",
+  "engines": {
+    "node": "=8.9.4"
+  },
+  "dependencies": {
+    "@angular/cli": "1.7.2",
+    "@angular/compiler-cli": "5.2.7",
+    "@angular/compiler": "5.2.7",
+    "@angular/core": "5.2.7",
+    "express": "4.16.2",
+    "typescript": "2.4.2",
+    "zone.js": "0.8.4"
+  }
+}
