@@ -1,11 +1,18 @@
-var express = require("express");
+import express from 'express';
 
-var app = express();
+let app = express();
 
 // Create link to Angular build directory
-app.use(express.static(__dirname + "/../front/dist/"));
+if (__dirname.endsWith("dist")){
+  app.use(express.static(__dirname + "/../../front/dist/"));
+}else{
+  app.use(express.static(__dirname + "/../front/dist/"));
+}
+
 
 // node server running =========================================================
 app.listen(8080, function(){
   console.log("Running server!");
 });
+
+export default app;

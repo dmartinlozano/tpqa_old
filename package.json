@@ -5,7 +5,7 @@
   "scripts": {
     "build-back": "rimraf back/dist/ && babel ./back --out-dir back/dist/ --copy-files",
     "build-front": "rimraf front/dist/ && cd front && ng build",
-    "start": "npm run build-front && npm run build-back && node back/server.js"
+    "start": "npm run build-front && npm run build-back && node back/dist/server.js"
   },
   "engines": {
     "node": "=8.9.4"
