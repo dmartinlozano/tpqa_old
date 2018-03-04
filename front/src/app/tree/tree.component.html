@@ -19,19 +19,14 @@
               class="fa fa-{{ node.isExpanded ? expandedIcon : collapsedIcon }}"
               style="font-size:15px; color:blue"
               aria-hidden="true"></i>
-            <i
-              *ngIf="materialIcon"
-              class="material-icons">{{ node.isExpanded ? expandedIcon : collapsedIcon }}</i>
           </ng-container>
           <ng-container
             *ngSwitchCase="false">
             <i
               *ngIf="fontAwesomeIcon"
               class="fa fa-{{ icon }}"
+              style="font-size:15px; color:blue"
               aria-hidden="true"></i>
-            <i
-              *ngIf="materialIcon"
-              class="material-icons">{{ icon }}</i>
           </ng-container>
         </ng-container>
         {{ node.title }}

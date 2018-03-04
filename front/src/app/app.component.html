@@ -1,6 +1,6 @@
 <tpqa-navbar></tpqa-navbar>
-<div class="container">
-    <div class="row valign-wrapper">
+
+    <div class="row">
         <!-- <div class="col s5 valign">
             <tpqa-tree
                 [dataFile]="'./assets/data.json'"
@@ -17,15 +17,15 @@
                 [disableChildren]="true">
             </tpqa-tree>
         </div> -->
-        <div class="col offset-s2 s5 valign">
+        <div class="col s3">
             <tpqa-tree [nodes]="
             [{
                 'title' : 'Right Menu',
-                'isExpanded': true,
+                'isExpanded': false,
                 'children': [
                     {
                         'title': 'Child #1',
-                        'isExpanded': true,
+                        'isExpanded': false,
                         'children': [
                             {
                                 'title': 'SubChild #1.1'
@@ -48,4 +48,3 @@
             }]"></tpqa-tree>
         </div>
     </div>
-</div>

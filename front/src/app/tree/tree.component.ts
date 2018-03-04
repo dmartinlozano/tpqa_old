@@ -39,9 +39,9 @@ export class TreeComponent implements OnInit {
    @Input() fontAwesomeIcon: boolean = true;           // [true, false]
    @Input() materialIcon: boolean;                     // [false, true]
    @Input() collapsibleType: string = 'expandable';    // ['expandable', 'accordion']
-   @Input() expandedIcon: string = 'minus';   // ['minus-square-o', ...]
-   @Input() collapsedIcon: string = 'plus';   // ['plus-square-o', ...]
-   @Input() icon: string = 'fw';                       // ['fw', ...]
+   @Input() expandedIcon: string = 'folder-open-o';   // ['minus-square-o', ...]
+   @Input() collapsedIcon: string = 'folder-o';   // ['plus-square-o', ...]
+   @Input() icon: string = 'cubes';                       // ['fw', ...]
    @Input() padding: string;
    @Input() paddingLeft: string;
    @Input() paddingRight: string;
