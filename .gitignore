@@ -1,6 +1,4 @@
-
 node_modules/
-
 back/dist/
-
 front/dist/
+back/data/
