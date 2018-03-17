@@ -24,7 +24,7 @@
             *ngSwitchCase="false">
             <i
               *ngIf="fontAwesomeIcon"
-              class="fa fa-{{ icon }}"
+              class="fa fa-{{ node.node_type_id !== 3 ? collapsedIcon : icon }}"
               style="font-size:15px; color:blue"
               aria-hidden="true"></i>
           </ng-container>

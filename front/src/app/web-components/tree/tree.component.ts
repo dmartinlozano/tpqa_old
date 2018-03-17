@@ -4,7 +4,7 @@ import { animate, transition, trigger, state, style} from '@angular/animations';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
-import { TreeNode } from 'app/tree/tree-node.model';
+import { TreeNode } from './tree-node.model';
 
 const animationDuration = 0.2; // open / close animation duration in seconds
 const easeInQuad: string = 'cubic-bezier(0.55, 0.085, 0.68, 0.53)';

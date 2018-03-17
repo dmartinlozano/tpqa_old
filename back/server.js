@@ -6,6 +6,7 @@ import cors from 'cors';
 import routes from './routes';
 
 let app = express();
+var env = process.argv[1]||'dev';
 let mysql_host = process.env.MYSQL_HOST || 'localhost';
 let mysql_user = process.env.MYSQL_USER || 'root';
 let mysql_password = process.env.MYSQL_PASSWORD || '';
@@ -48,7 +49,7 @@ mysqlConnection.connect(function (err){
 
 // node server running =========================================================
 app.listen(8080, function(){
-  console.log("Running server!");
+  console.log(`Running server in mode ${env}!`);
 });
 
 // node server closing
