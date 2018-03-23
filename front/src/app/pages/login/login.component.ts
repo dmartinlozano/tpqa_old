@@ -3,10 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'tpqa-login',
-  template: `
-     <button type='button' name='btn_login' (click)='login()' class='col s12 btn btn-large waves-effect'>Login</button>
-  `,
-  styles: []
+  templateUrl: 'login.component.html',
+  styleUrls: ['login.component.css']
 })
 export class LoginComponent implements OnInit {
   returnUrl: string;
@@ -17,12 +15,15 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
   }
   login(){
-    localStorage.setItem('currentUser', {email: "fake@fake.es", token:"fake-token"});
-    this.router.navigate(['/home']);
-    //this.router.navigate([this.returnUrl]);
+    localStorage.setItem('currentUser', JSON.stringify({email: "fake@fake.es", token:"fake-token"}));
+    this.router.navigate([this.returnUrl]);
+  }
+  logout(){
+    localStorage.removeItem("currentUser");
+    this.router.navigate(['/login']);
   }
 
 }

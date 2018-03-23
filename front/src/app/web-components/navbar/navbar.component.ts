@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { LoginComponent } from '../../pages/login/login.component'
 
 @Component({
   selector: 'tpqa-navbar',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NavbarComponent implements OnInit {
+  loginComponent: LoginComponent;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.loginComponent = new LoginComponent(route, router);
+   }
 
   ngOnInit() {
+  }
+  logout(){
+    this.loginComponent.logout();
   }
 
 }
