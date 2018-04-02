@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
   }
   login(){
-    localStorage.setItem('currentUser', JSON.stringify({email: "fake@fake.es", token:"fake-token"}));
+    localStorage.setItem('currentUser', JSON.stringify({email: "fake@fake.es", token:"fake-token", lastProjectId: 7}));
     this.router.navigate([this.returnUrl]);
   }
   logout(){

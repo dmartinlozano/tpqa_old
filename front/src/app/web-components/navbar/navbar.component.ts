@@ -19,6 +19,9 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
+  listTestProject(){
+    this.router.navigate(['/test-project-list']);
+  }
   logout(){
     this.loginComponent.logout();
   }

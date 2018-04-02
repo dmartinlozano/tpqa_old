@@ -11,6 +11,7 @@ import { TestSpecificationListComponent } from './pages/test-specification/test-
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RegisterComponent } from './pages/register/register.component';
     TestSpecificationListComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestProjectListComponent
   ],
   imports: [
     BrowserModule,
