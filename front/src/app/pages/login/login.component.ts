@@ -21,9 +21,5 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('currentUser', JSON.stringify({email: "fake@fake.es", token:"fake-token", lastProjectId: 7}));
     this.router.navigate([this.returnUrl]);
   }
-  logout(){
-    localStorage.removeItem("currentUser");
-    this.router.navigate(['/login']);
-  }
 
 }

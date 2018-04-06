@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TestProjectListComponent } from './pages/test-project/test-project-list
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    TestProjectListComponent
+    TestProjectListComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

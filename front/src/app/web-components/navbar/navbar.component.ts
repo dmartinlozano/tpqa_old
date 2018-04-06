@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/test-project-list']);
   }
   logout(){
-    this.loginComponent.logout();
+    this.router.navigate(['/logout']);
   }
 
 }
