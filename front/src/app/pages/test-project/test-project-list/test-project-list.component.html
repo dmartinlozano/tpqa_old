@@ -1,9 +1,47 @@
 <tpqa-navbar></tpqa-navbar>
-<div class="valign-wrapper row login-box">
-  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-      <div class="card-content">
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fa fa-plus" aria-hidden="true"></i></a>
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
+<div class="col card hoverable">
+  <div class="card-content">
+    <table class="highlight">
+       <thead>
+         <tr>
+             <th>Name</th>
+             <th>Description</th>
+             <th>Prefix</th>
+             <th>Issue Tracker</th>
+             <th>Requirement Feature</th>
+             <th>Active</th>
+             <th>Public</th>
+             <th> </th>
+             <th> </th>
+         </tr>
+       </thead>
+
+       <tbody >
+         <tr *ngFor="let testProject of testProjects">
+           <td (click)="change(testProject.id)" class="cursor">{{ testProject.name }}</td>
+           <td (click)="change(testProject.id)" class="cursor">{{ testProject.notes | html2Text }}</td>
+           <td (click)="change(testProject.id)" class="cursor">{{ testProject.prefix }}</td>
+           <td>
+             <i *ngIf="testProject.issue_tracker_enabled === 1" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
+             <i *ngIf="testProject.issue_tracker_enabled  === 0" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
+           </td>
+           <td>
+             <i *ngIf="(testProject.options|testProjectOptions) === '1'?true:false" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
+             <i *ngIf="(testProject.options|testProjectOptions) === '0'?true:false" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
+           </td>
+           <td>
+             <i *ngIf="testProject.active === 1" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
+             <i *ngIf="testProject.active  === 0" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
+           </td>
+           <td>
+             <i *ngIf="testProject.is_public === 1" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
+             <i *ngIf="testProject.is_public  === 0" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
+           </td>
+           <td (click)="edit(testProject.id)" class="cursor"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></td>
+           <td (click)="delete(testProject.id)" class="cursor"><i class="fa fa-times fa-lg" aria-hidden="true"></i></td>
+         </tr>
+       </tbody>
+     </table>
+   <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fa fa-plus" aria-hidden="true"></i></a>
   </div>
+</div>

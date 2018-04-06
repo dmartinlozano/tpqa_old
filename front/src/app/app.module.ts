@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SafeHtmlPipe } from './pipes/safehtml.pipe';
+import { Html2TextPipe } from './pipes/html2text.pipe';
+import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
+
+import { LocalStorageService } from './auth/local-storage.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,6 +24,9 @@ import { LogoutComponent } from './pages/logout/logout.component';
   declarations: [
     AppComponent,
     NavbarComponent,
+    SafeHtmlPipe,
+    Html2TextPipe,
+    TestProjectsOptionsPipe,
     TestSpecificationListComponent,
     HomeComponent,
     LoginComponent,
@@ -32,7 +40,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
     TreeModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

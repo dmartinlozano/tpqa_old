@@ -4,7 +4,7 @@ import TestProject from './api/test-project';
 
 const routes = new Router();
 routes.get('/', NodesHierarchy.ok);
-routes.get('/tree/:testProject', NodesHierarchy.getTree);
+routes.get('/testspecifications/:testProject', NodesHierarchy.getTree);
 routes.get('/testprojects', TestProject.list);
 
 export default routes;
