@@ -18,6 +18,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { TestProjectDetailsComponent } from './pages/test-project/test-project-details/test-project-details.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     LoginComponent,
     RegisterComponent,
     TestProjectListComponent,
-    LogoutComponent
+    LogoutComponent,
+    TestProjectDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@
         [style.padding-left]="getPaddingLeft()"
         [style.padding-right]="getPaddingRight()"
         [ngClass]="{ 'root-tree-node': isRoot }"
-        (click)="node.isExpanded = !node.isExpanded">
+        (click)="selectNodeTree(node, $event)">
         <ng-container [ngSwitch]="node.children?.length > 0">
           <!-- node has children -->
           <ng-container *ngSwitchCase="true">

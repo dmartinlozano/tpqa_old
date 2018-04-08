@@ -28,4 +28,9 @@ export class TestSpecificationListComponent implements OnInit {
        });
     });
   }
+
+  showNode(event){
+    console.log("entra por test-specification-list.component");
+    console.log(event);
+  };
 }

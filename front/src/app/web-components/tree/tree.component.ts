@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit} from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { animate, transition, trigger, state, style} from '@angular/animations';
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
@@ -61,6 +61,9 @@ export class TreeComponent implements OnInit {
    // component fields
    @Input() isRoot: boolean = true;
    @Input() level: number = 0;
+
+   // event to throw the selected node
+   @Output() selectedNodeTree = new EventEmitter();
 
    constructor(private http: Http) { }
 
@@ -184,5 +187,12 @@ export class TreeComponent implements OnInit {
          }
        }
      }
-   }
+   };
+
+   selectNodeTree(node, event){
+     console.log("entra por tree.component");
+     console.log(node);
+     node.isExpanded = !node.isExpanded;
+     this.selectedNodeTree.emit(node);
+  };
 }
