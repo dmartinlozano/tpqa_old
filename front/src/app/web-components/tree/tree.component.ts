@@ -192,7 +192,7 @@ export class TreeComponent implements OnInit {
    selectNodeTree(node, event){
      console.log("entra por tree.component");
      console.log(node);
-     node.isExpanded = !node.isExpanded;
+     //node.isExpanded = !node.isExpanded;
      this.selectedNodeTree.emit(node);
   };
 }

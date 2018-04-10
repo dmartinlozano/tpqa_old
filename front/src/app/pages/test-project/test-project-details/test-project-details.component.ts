@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { TestProjectService } from '../test-project.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { TestProjectService } from '../test-project.service';
 })
 export class TestProjectDetailsComponent implements OnInit {
 
+  @Input() nodeSelectedData: any;
   testProjectDetailsHidden = true;
   testProject = null;
 
@@ -17,8 +18,14 @@ export class TestProjectDetailsComponent implements OnInit {
 
   ngOnInit() {}
 
-  hidden(){
-    this.testProjectDetailsHidden = true;
-  };
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.nodeSelectedData.currentValue !== null){
+      this.nodeSelectedData = changes.nodeSelectedData.currentValue;
+      console.log("entra por test-project-details.component");
+      console.error(this.nodeSelectedData);
+      //this.nodeSelected = nodeSelected.currentValue;
+    }
+  }
 
 }

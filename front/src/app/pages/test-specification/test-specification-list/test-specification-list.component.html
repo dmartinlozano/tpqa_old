@@ -4,6 +4,6 @@
         <tpqa-tree [nodes]="testSpecificationTreeData" (selectedNodeTree)="showNode($event)"></tpqa-tree>
     </div>
     <div class="col s9">
-        <tpqa-test-project-details ></tpqa-test-project-details>
+        <tpqa-test-project-details [nodeSelectedData]="nodeSelected" *ngIf="nodeSelected !== null && nodeSelected.node_type_id ===1"></tpqa-test-project-details>
     </div>
 </div>

@@ -12,6 +12,7 @@ export class TestSpecificationListComponent implements OnInit {
 
   testProjectId: number;
   testSpecificationTreeData = null;
+  nodeSelected = null;
 
   constructor(
     private testSpecificationService: TestSpecificationService,
@@ -31,6 +32,7 @@ export class TestSpecificationListComponent implements OnInit {
 
   showNode(event){
     console.log("entra por test-specification-list.component");
+    this.nodeSelected = event;
     console.log(event);
   };
 }
