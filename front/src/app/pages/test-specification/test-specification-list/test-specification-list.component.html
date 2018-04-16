@@ -1,9 +1,15 @@
 <tpqa-navbar></tpqa-navbar>
 <div class="row">
     <div class="col s3">
-        <tpqa-tree [nodes]="testSpecificationTreeData" (selectedNodeTree)="showNode($event)"></tpqa-tree>
+        <tpqa-tree [nodes]="testSpecificationTreeData"></tpqa-tree>
     </div>
     <div class="col s9">
-        <tpqa-test-project-details [nodeSelectedData]="nodeSelected" *ngIf="nodeSelected !== null && nodeSelected.node_type_id ===1"></tpqa-test-project-details>
+        <tpqa-test-project-details></tpqa-test-project-details>
+    </div>
+    <div class="col s9">
+        <tpqa-test-suite-details></tpqa-test-suite-details>
+    </div>
+    <div class="col s9">
+        <tpqa-test-case-details></tpqa-test-case-details>
     </div>
 </div>

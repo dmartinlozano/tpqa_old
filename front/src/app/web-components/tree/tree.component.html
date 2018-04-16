@@ -30,7 +30,7 @@
               (click)="node.isExpanded = !node.isExpanded"></i>
           </ng-container>
         </ng-container>
-        <span (click)="selectNodeTree(node, $event)">{{ node.title }}</span>
+        <span (click)="selectNode(node)">{{ node.title }}</span>
         <ng-container *ngIf="showSwitches">
           <!-- Switch -->
           <div class="switch right"

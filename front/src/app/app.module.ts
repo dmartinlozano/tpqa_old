@@ -5,6 +5,7 @@ import { Html2TextPipe } from './pipes/html2text.pipe';
 import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
 
 import { LocalStorageService } from './auth/local-storage.service'
+import { TreeService } from './web-components/tree/tree.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -19,6 +20,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { TestProjectDetailsComponent } from './pages/test-project/test-project-details/test-project-details.component';
+import { TestSuiteListComponent } from './pages/test-suite/test-suite-list/test-suite-list.component';
+import { TestSuiteDetailsComponent } from './pages/test-suite/test-suite-details/test-suite-details.component';
+import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/test-case-details.component';
 
 
 @NgModule({
@@ -34,7 +38,10 @@ import { TestProjectDetailsComponent } from './pages/test-project/test-project-d
     RegisterComponent,
     TestProjectListComponent,
     LogoutComponent,
-    TestProjectDetailsComponent
+    TestProjectDetailsComponent,
+    TestSuiteListComponent,
+    TestSuiteDetailsComponent,
+    TestCaseDetailsComponent
   ],
   imports: [
     BrowserModule,

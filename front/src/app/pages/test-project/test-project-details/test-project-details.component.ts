@@ -8,8 +8,7 @@ import { TestProjectService } from '../test-project.service';
 })
 export class TestProjectDetailsComponent implements OnInit {
 
-  @Input() nodeSelectedData: any;
-  testProjectDetailsHidden = true;
+  @Input() nodeSelectedData;
   testProject = null;
 
   constructor(
@@ -17,15 +16,5 @@ export class TestProjectDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {}
-
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.nodeSelectedData.currentValue !== null){
-      this.nodeSelectedData = changes.nodeSelectedData.currentValue;
-      console.log("entra por test-project-details.component");
-      console.error(this.nodeSelectedData);
-      //this.nodeSelected = nodeSelected.currentValue;
-    }
-  }
 
 }

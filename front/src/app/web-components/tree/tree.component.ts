@@ -1,10 +1,11 @@
-import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import { Component, Input, Output, OnInit} from '@angular/core';
 import { animate, transition, trigger, state, style} from '@angular/animations';
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import { TreeNode } from './tree-node.model';
+import { TreeService } from './tree.service'
 
 const animationDuration = 0.2; // open / close animation duration in seconds
 const easeInQuad: string = 'cubic-bezier(0.55, 0.085, 0.68, 0.53)';
@@ -15,6 +16,7 @@ const easeOutQuad: string = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
   selector: 'tpqa-tree',
   templateUrl: 'tree.component.html',
   styleUrls: ['tree.component.css'],
+  providers: [TreeService],
   animations:   [
   trigger('treeNodeChildrenState', [
     state('false', style({
@@ -62,10 +64,10 @@ export class TreeComponent implements OnInit {
    @Input() isRoot: boolean = true;
    @Input() level: number = 0;
 
-   // event to throw the selected node
-   @Output() selectedNodeTree = new EventEmitter();
-
-   constructor(private http: Http) { }
+   constructor(
+     private http: Http,
+     private treeService: TreeService
+   ) { }
 
    ngOnInit() {
      //console.debug('ngOnInit()');
@@ -189,10 +191,6 @@ export class TreeComponent implements OnInit {
      }
    };
 
-   selectNodeTree(node, event){
-     console.log("entra por tree.component");
-     console.log(node);
-     //node.isExpanded = !node.isExpanded;
-     this.selectedNodeTree.emit(node);
+  selectNode(node){
   };
 }
