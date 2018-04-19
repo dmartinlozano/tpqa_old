@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginComponent } from '../../pages/login/login.component'
 
 @Component({
@@ -8,19 +8,18 @@ import { LoginComponent } from '../../pages/login/login.component'
   styles: []
 })
 export class NavbarComponent implements OnInit {
-  loginComponent: LoginComponent;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router
-  ) {
-    this.loginComponent = new LoginComponent(route, router);
-   }
+  ) {}
 
   ngOnInit() {
   }
+  listTestProject(){
+    this.router.navigate(['/test-projects']);
+  }
   logout(){
-    this.loginComponent.logout();
+    this.router.navigate(['/logout']);
   }
 
 }

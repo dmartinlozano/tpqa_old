@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import { TreeNode } from './tree-node.model';
+import { TreeService } from './tree.service'
 
 const animationDuration = 0.2; // open / close animation duration in seconds
 const easeInQuad: string = 'cubic-bezier(0.55, 0.085, 0.68, 0.53)';
@@ -62,7 +63,10 @@ export class TreeComponent implements OnInit {
    @Input() isRoot: boolean = true;
    @Input() level: number = 0;
 
-   constructor(private http: Http) { }
+   constructor(
+     private http: Http,
+     private treeService: TreeService
+   ) { }
 
    ngOnInit() {
      //console.debug('ngOnInit()');
@@ -184,5 +188,9 @@ export class TreeComponent implements OnInit {
          }
        }
      }
-   }
+   };
+
+  selectNode(node){
+    this.treeService.selectNode(node);
+  };
 }

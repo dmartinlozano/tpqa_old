@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './local-storage.service';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
+
+    constructor(
+      private localStorageService: LocalStorageService
+    ) { }
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser && currentUser.token) {
+        let email = this.localStorageService.getItem('email');
+        let token = this.localStorageService.getItem('token');
+        if (email && token) {
             request = request.clone({
                 setHeaders: {
-                    Authorization: `Bearer ${currentUser.token}`
+                    Authorization: `Bearer ${token}`
                 }
             });
         }
