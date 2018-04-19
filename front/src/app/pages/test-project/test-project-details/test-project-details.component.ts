@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { TreeService } from '../../../web-components/tree/tree.service';
 import { TestProjectService } from '../test-project.service';
 
 @Component({
@@ -8,13 +9,17 @@ import { TestProjectService } from '../test-project.service';
 })
 export class TestProjectDetailsComponent implements OnInit {
 
-  @Input() nodeSelectedData;
-  testProject = null;
+  testProjectId = null;
 
   constructor(
-    private testProjectService: TestProjectService
-  ) { }
-
-  ngOnInit() {}
-
+    private treeService: TreeService
+  ) {
+    this.treeService.getNode().subscribe(node => {
+      if (node.node_type_id === 1){
+        this.testProjectId = node.id;
+      }else{
+        this.testProjectId = null;
+      }
+    });
+  }
 }

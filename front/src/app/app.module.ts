@@ -49,7 +49,7 @@ import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/te
     TreeModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthGuard, LocalStorageService],
+  providers: [AuthGuard, LocalStorageService, TreeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

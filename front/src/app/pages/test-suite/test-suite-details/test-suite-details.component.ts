@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { TreeService } from '../../../web-components/tree/tree.service';
 
 @Component({
   selector: 'tpqa-test-suite-details',
@@ -6,9 +7,18 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class TestSuiteDetailsComponent implements OnInit {
 
-  @Input() nodeSelectedData;
-  constructor() { }
-  ngOnInit() {
+  testSuiteId = null;
+
+  constructor(
+    private treeService: TreeService
+  ) {
+    this.treeService.getNode().subscribe(node => {
+      if (node.node_type_id === 2){
+        this.testSuiteId = node.id;
+      }else{
+        this.testSuiteId = null;
+      }
+    });
   }
 
 }

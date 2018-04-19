@@ -16,7 +16,6 @@ const easeOutQuad: string = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
   selector: 'tpqa-tree',
   templateUrl: 'tree.component.html',
   styleUrls: ['tree.component.css'],
-  providers: [TreeService],
   animations:   [
   trigger('treeNodeChildrenState', [
     state('false', style({
@@ -192,5 +191,6 @@ export class TreeComponent implements OnInit {
    };
 
   selectNode(node){
+    this.treeService.selectNode(node);
   };
 }
