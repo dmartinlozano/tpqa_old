@@ -11,5 +11,4 @@ export class TestSpecificationService {
     const response = await this.http.get(`http://localhost:8080/api/testspecifications/${testProjectId}`).toPromise();
     return response.json();
   }
-
 }

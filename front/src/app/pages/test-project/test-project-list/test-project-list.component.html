@@ -1,47 +1,58 @@
-<tpqa-navbar></tpqa-navbar>
-<div class="col card hoverable">
-  <div class="card-content">
-    <table class="highlight">
-       <thead>
-         <tr>
-             <th>Name</th>
-             <th>Description</th>
-             <th>Prefix</th>
-             <th>Issue Tracker</th>
-             <th>Requirement Feature</th>
-             <th>Active</th>
-             <th>Public</th>
-             <th> </th>
-             <th> </th>
-         </tr>
-       </thead>
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+    <mdl-layout-header>
+      <tpqa-navbar></tpqa-navbar>
+    </mdl-layout-header>
+  <mdl-layout-content>
+    <mdl-card mdl-shadow="2" [style.width.%]="100">
+       <mdl-card-title>
+         <h2 mdl-card-title-text>Test projects</h2>
+       </mdl-card-title>
+       <mdl-card-supporting-text [style.width.%]="97">
+         <table class="mdl-data-table" [style.width.%]="100">
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Prefix</th>
+                  <th>Issue Tracker</th>
+                  <th>Requirement Feature</th>
+                  <th>Active</th>
+                  <th>Public</th>
+                  <th> </th>
+                  <th> </th>
+              </tr>
+            </thead>
 
-       <tbody >
-         <tr *ngFor="let testProject of testProjects">
-           <td (click)="change(testProject.id)" class="cursor">{{ testProject.name }}</td>
-           <td (click)="change(testProject.id)" class="cursor">{{ testProject.notes | html2Text }}</td>
-           <td (click)="change(testProject.id)" class="cursor">{{ testProject.prefix }}</td>
-           <td>
-             <i *ngIf="testProject.issue_tracker_enabled === 1" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
-             <i *ngIf="testProject.issue_tracker_enabled  === 0" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
-           </td>
-           <td>
-             <i *ngIf="(testProject.options|testProjectOptions) === '1'?true:false" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
-             <i *ngIf="(testProject.options|testProjectOptions) === '0'?true:false" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
-           </td>
-           <td>
-             <i *ngIf="testProject.active === 1" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
-             <i *ngIf="testProject.active  === 0" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
-           </td>
-           <td>
-             <i *ngIf="testProject.is_public === 1" class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i>
-             <i *ngIf="testProject.is_public  === 0" class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
-           </td>
-           <td (click)="edit(testProject.id)" class="cursor"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></td>
-           <td (click)="delete(testProject.id)" class="cursor"><i class="fa fa-times fa-lg" aria-hidden="true"></i></td>
-         </tr>
-       </tbody>
-     </table>
-   <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="fa fa-plus" aria-hidden="true"></i></a>
-  </div>
-</div>
+            <tbody >
+              <tr *ngFor="let testProject of testProjects">
+                <td (click)="change(testProject.id)" class="cursor">{{ testProject.name }}</td>
+                <td (click)="change(testProject.id)" class="cursor">{{ testProject.notes | html2Text }}</td>
+                <td (click)="change(testProject.id)" class="cursor">{{ testProject.prefix }}</td>
+                <td>
+                  <i *ngIf="testProject.issue_tracker_enabled === 1" class="material-icons" aria-hidden="true">check_circle</i>
+                  <i *ngIf="testProject.issue_tracker_enabled  === 0" class="material-icons" aria-hidden="true">remove_circle</i>
+                </td>
+                <td>
+                  <i *ngIf="(testProject.options|testProjectOptions) === '1'?true:false" class="material-icons" aria-hidden="true">check_circle</i>
+                  <i *ngIf="(testProject.options|testProjectOptions) === '0'?true:false" class="material-icons" aria-hidden="true">remove_circle</i>
+                </td>
+                <td>
+                  <i *ngIf="testProject.active === 1" class="material-icons" aria-hidden="true">check_circle</i>
+                  <i *ngIf="testProject.active  === 0" class="material-icons" aria-hidden="true">remove_circle</i>
+                </td>
+                <td>
+                  <i *ngIf="testProject.is_public === 1" class="material-icons" aria-hidden="true">check_circle</i>
+                  <i *ngIf="testProject.is_public  === 0" class="material-icons" aria-hidden="true">remove_circle</i>
+                </td>
+                <td (click)="edit(testProject.id)" class="cursor"><i class="material-icons" aria-hidden="true">mode_edit</i></td>
+                <td (click)="delete(testProject.id)" class="cursor"><i class="material-icons" aria-hidden="true">delete</i></td>
+              </tr>
+            </tbody>
+         </table>
+       </mdl-card-supporting-text>
+    </mdl-card>
+ </mdl-layout-content>
+</mdl-layout>
+
+<tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
+</tpqa-fab-menu>

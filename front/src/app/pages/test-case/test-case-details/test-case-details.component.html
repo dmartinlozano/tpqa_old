@@ -1,3 +1,80 @@
-<div *ngIf="testCaseId !== null">
-    Test case: {{ testCaseId }}
-</div>
+<div *ngIf="testCase !== null">
+  <mdl-card mdl-shadow="2" [style.width.%]="100">
+     <mdl-card-title [style.width.%]="100">
+           <h2 mdl-card-title-text style="line-height: 100px;">{{ testCase.name }}</h2>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <mdl-select floating-label label="Version" [(ngModel)]="currentVersion.id" (change)="changeVersion($event)" [style.width.%]="10">
+             <mdl-option *ngFor="let version of versions" [value]="version.id">{{version.value}}</mdl-option>
+           </mdl-select>
+     </mdl-card-title>
+     <mdl-card-supporting-text [innerHTML]="testCase.summary"></mdl-card-supporting-text>
+     <mdl-card-supporting-text [innerHTML]="testCase.preconditions"></mdl-card-supporting-text>
+     <mdl-card-supporting-text>
+       <mdl-textfield label="Status" type="text" floating-label [ngModel]="getStatus(testCase.status)" readonly="true"></mdl-textfield>
+       <mdl-textfield label="Importance" type="text" floating-label [ngModel]="getImportance(testCase.importance)" readonly="true"></mdl-textfield>
+       <mdl-textfield label="ExecutionType" type="text" floating-label [ngModel]="getExecutionType(testCase.execution_type)" readonly="true"></mdl-textfield>
+       <mdl-textfield label="Estimated exec. (min)" type="text" floating-label [ngModel]="testCase.estimated_exec_duration" readonly="true"></mdl-textfield>
+     </mdl-card-supporting-text>
+     <mdl-card-supporting-text>
+         <mdl-chip *ngFor="let keyword of keywords" mdl-label="{{ keyword.keyword }}"></mdl-chip>
+     </mdl-card-supporting-text>
+  </mdl-card>
+
+  <mdl-expansion-panel #panel [expanded]="true">
+    <mdl-expansion-panel-header style="cursor">
+      <mdl-expansion-panel-header-list-content (click)="panel.toggle()">
+         <mdl-icon>description</mdl-icon>  Steps
+      </mdl-expansion-panel-header-list-content>
+    </mdl-expansion-panel-header>
+    <mdl-expansion-panel-content>
+      <mdl-expansion-panel-body>
+        <mdl-table mdl-shadow="2" [table-model]="stepsTableModel"></mdl-table>
+      </mdl-expansion-panel-body>
+    </mdl-expansion-panel-content>
+  </mdl-expansion-panel>
+
+
+   <mdl-expansion-panel #panel2 [expanded]="true">
+     <mdl-expansion-panel-header style="cursor">
+       <mdl-expansion-panel-header-list-content (click)="panel2.toggle()">
+          <mdl-icon>attach_file</mdl-icon>  Attached files
+       </mdl-expansion-panel-header-list-content>
+     </mdl-expansion-panel-header>
+     <mdl-expansion-panel-content>
+       <mdl-expansion-panel-body>
+         <tpqa-files [id]="testCase.id"></tpqa-files>
+       </mdl-expansion-panel-body>
+     </mdl-expansion-panel-content>
+   </mdl-expansion-panel>
+
+   <mdl-expansion-panel #panel3 [expanded]="true">
+     <mdl-expansion-panel-header style="cursor">
+       <mdl-expansion-panel-header-list-content (click)="panel3.toggle()">
+          <mdl-icon>chrome_reader_mode</mdl-icon>  Requirements
+       </mdl-expansion-panel-header-list-content>
+     </mdl-expansion-panel-header>
+     <mdl-expansion-panel-content>
+       <mdl-expansion-panel-body>
+         <mdl-table mdl-shadow="2" [table-model]="requirementsTableModel"></mdl-table>
+       </mdl-expansion-panel-body>
+     </mdl-expansion-panel-content>
+   </mdl-expansion-panel>
+
+   <mdl-expansion-panel #panel4 [expanded]="true">
+     <mdl-expansion-panel-header style="cursor">
+       <mdl-expansion-panel-header-list-content (click)="panel4.toggle()">
+          <mdl-icon>link</mdl-icon>  Related
+       </mdl-expansion-panel-header-list-content>
+     </mdl-expansion-panel-header>
+     <mdl-expansion-panel-content>
+       <mdl-expansion-panel-body>
+         <mdl-table mdl-shadow="2" [table-model]="relatedTableModel"></mdl-table>
+       </mdl-expansion-panel-body>
+     </mdl-expansion-panel-content>
+   </mdl-expansion-panel>
+
+   <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Case" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+   </tpqa-fab-menu>
+  </div>

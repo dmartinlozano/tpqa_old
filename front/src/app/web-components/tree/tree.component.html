@@ -1,5 +1,6 @@
 <ul
     [ngClass]="{ 'tree': isRoot }"
+    class="demo-list-item mdl-list"
     [attr.data-collapsible]="collapsibleType">
   <ng-container *ngFor="let node of nodes">
     <li>
@@ -14,20 +15,18 @@
           <!-- node has children -->
           <ng-container *ngSwitchCase="true">
             <i
-              *ngIf="fontAwesomeIcon"
-              class="fa fa-{{ node.isExpanded ? expandedIcon : collapsedIcon }}"
-              style="font-size:15px; color:blue"
-              aria-hidden="true"
-              (click)="node.isExpanded = !node.isExpanded"></i>
+              *ngIf="materialIcon"
+              class="material-icons"
+              style="font-size:24px; color:blue"
+              (click)="node.isExpanded = !node.isExpanded">{{ node.isExpanded ? "folder_open" : "folder" }}</i>
           </ng-container>
           <ng-container
             *ngSwitchCase="false">
             <i
-              *ngIf="fontAwesomeIcon"
-              class="fa fa-{{ node.node_type_id !== 3 ? collapsedIcon : icon }}"
-              style="font-size:15px; color:blue"
-              aria-hidden="true"
-              (click)="node.isExpanded = !node.isExpanded"></i>
+              *ngIf="materialIcon"
+              class="material-icons"
+              style="font-size:24px; color:blue"
+              (click)="node.isExpanded = !node.isExpanded">{{ node.node_type_id !== 3 ? "folder" : "assignment" }}</i>
           </ng-container>
         </ng-container>
         <span (click)="selectNode(node)">{{ node.title }}</span>

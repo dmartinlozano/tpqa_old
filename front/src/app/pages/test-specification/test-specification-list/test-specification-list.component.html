@@ -1,15 +1,17 @@
-<tpqa-navbar></tpqa-navbar>
-<div class="row">
-    <div class="col s3">
-        <tpqa-tree [nodes]="testSpecificationTreeData" (selectedNode)="selectNode()"></tpqa-tree>
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+    <mdl-layout-header>
+      <tpqa-navbar></tpqa-navbar>
+    </mdl-layout-header>
+  <mdl-layout-content>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col">
+            <tpqa-tree [nodes]="testSpecificationTreeData" (selectedNode)="selectNode()"></tpqa-tree>
+        </div>
+        <div class="mdl-cell mdl-cell--8-col">
+            <tpqa-test-project-details></tpqa-test-project-details>
+            <tpqa-test-suite-details></tpqa-test-suite-details>
+            <tpqa-test-case-details></tpqa-test-case-details>
+        </div>
     </div>
-    <div class="col s9">
-        <tpqa-test-project-details></tpqa-test-project-details>
-    </div>
-    <div class="col s9">
-        <tpqa-test-suite-details></tpqa-test-suite-details>
-    </div>
-    <div class="col s9">
-        <tpqa-test-case-details></tpqa-test-case-details>
-    </div>
-</div>
+  </mdl-layout-content>
+</mdl-layout>
