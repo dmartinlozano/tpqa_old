@@ -1,26 +1,20 @@
-<ul id="test-project-down" class="dropdown-content">
-  <li><a (click)="listTestProject()">Change</a></li>
-  <li class="divider"></li>
-  <li><a href="#">New</a></li>
-</ul>
-
-<ul id="user-down" class="dropdown-content">
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Admin</a></li>
-  <li class="divider"></li>
-  <li><a (click)="logout()">Logout</a></li>
-</ul>
-
-<nav>
-   <div class="nav-wrapper">
-     <a class="brand-logo">TPQA</a>
-     <ul id="nav" class="right hide-on-med-and-down">
-       <li><a class='dropdown-button' href='#!' data-activates='test-project-down'>Test project <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
-       <li><a href="#">Test specification</a></li>
-       <li><a href="#">Test plan</a></li>
-       <li><a href="#">Requirements</a></li>
-       <li><a href="#">Find</a></li>
-       <li><a class='dropdown-button' href='#!' data-activates='user-down'>User <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
-     </ul>
-   </div>
-</nav>
+         <mdl-layout-header-row>
+            <mdl-layout-title>TPQA</mdl-layout-title>
+            <mdl-layout-spacer></mdl-layout-spacer>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+               <a class="mdl-navigation__link cursor" (click)="listTestProject()" >Test project</a>
+               <a class="mdl-navigation__link cursor" >Test plan</a>
+               <a class="mdl-navigation__link cursor" >Requirements</a>
+               <a class="mdl-navigation__link cursor" >Find</a>
+               <a class="mdl-navigation__link cursor" >User
+                 <button mdl-button #btn2="mdlButton"  [mdl-toggle-menu]="m2" mdl-button-type="icon" mdl-ripple>
+                   <mdl-icon>more_vert</mdl-icon>
+                 </button>
+                    <mdl-menu #m2="mdlMenu" mdl-menu-position="bottom-right">
+                      <mdl-menu-item mdl-ripple >Profile</mdl-menu-item>
+                      <mdl-menu-item mdl-ripple mdl-menu-item-full-bleed-divider>Admin</mdl-menu-item>
+                      <mdl-menu-item mdl-ripple >Logout</mdl-menu-item>
+                    </mdl-menu>
+              </a>
+            </nav>
+         </mdl-layout-header-row>

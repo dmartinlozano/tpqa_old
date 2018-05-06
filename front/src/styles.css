@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~font-awesome/css/font-awesome.css';
-@import '~materialize-css/dist/css/materialize.min.css';
+@import '~mdi/css/materialdesignicons.min.css';
+@import '~@angular-mdl/popover/popover.css';
+@import '~@angular-mdl/expansion-panel/expansion-panel.css';
+@import '~@angular-mdl/datepicker/datepicker.css';
+@import '~@angular-mdl/fab-menu/fab-menu.css';
+@import '~@angular-mdl/select/select.css';

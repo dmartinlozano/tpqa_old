@@ -19,10 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "tpqa",
       "styles": [
-        "styles.css",
-        "../../node_modules/materialize-css/dist/css/materialize.css"
+        "styles.css"
       ],
-      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

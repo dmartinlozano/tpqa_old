@@ -22,7 +22,7 @@ class NodesHierarchy{
              treeList.push(obj);
          }
       });
-      return res.send(treeList.filter(x => x.id === parseInt(req.params.testProject)));;
+      return res.send(treeList.filter(x => x.id === parseInt(req.params.testProjectId)));;
     });
   };
 }

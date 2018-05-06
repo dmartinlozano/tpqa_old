@@ -1,3 +1,36 @@
-<div *ngIf="testSuiteId !== null">
-    Test suite: {{ testSuiteId }}
-</div>
+<div *ngIf="testSuite !== null">
+  <mdl-card mdl-shadow="2" [style.width.%]="100">
+     <mdl-card-title>
+       <h2 mdl-card-title-text>{{ testSuite.name }}</h2>
+     </mdl-card-title>
+     <mdl-card-supporting-text [innerHTML]="testSuite.details"></mdl-card-supporting-text>
+     <mdl-card-supporting-text>
+         <mdl-chip *ngFor="let keyword of keywords" mdl-label="{{ keyword.keyword }}"></mdl-chip>
+     </mdl-card-supporting-text>
+  </mdl-card>
+
+
+   <mdl-expansion-panel #panel>
+     <mdl-expansion-panel-header style="cursor">
+       <mdl-expansion-panel-header-list-content (click)="panel.toggle()">
+            <mdl-icon>attach_file</mdl-icon>  Attached files
+       </mdl-expansion-panel-header-list-content>
+     </mdl-expansion-panel-header>
+     <mdl-expansion-panel-content>
+       <mdl-expansion-panel-body>
+         <tpqa-files [id]="testSuite.id"></tpqa-files>
+       </mdl-expansion-panel-body>
+     </mdl-expansion-panel-content>
+   </mdl-expansion-panel>
+
+   <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Suite" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="edit" label="Edit Test Suite" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="delete" label="Delete Test Suite" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Case" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+   </tpqa-fab-menu>
+  </div>

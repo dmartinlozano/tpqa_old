@@ -13,12 +13,4 @@ export class TreeService {
   getNode(): Observable<any> {
       return this.nodeSelected.asObservable();
   }
-
-/*  sendMessage(message: string) {
-        this.subject.next({ text: message });
-    }
-
-    getMessage(): Observable<any> {
-        return this.subject.asObservable();
-    }*/
 }

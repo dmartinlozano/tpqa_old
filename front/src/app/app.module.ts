@@ -1,11 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from './pipes/safehtml.pipe';
 import { Html2TextPipe } from './pipes/html2text.pipe';
 import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 import { LocalStorageService } from './auth/local-storage.service'
-import { TreeService } from './web-components/tree/tree.service'
+import { TreeService } from './web-components/tree/tree.service';
+
+import { MdlModule } from '@angular-mdl/core';
+import { MdlDatePickerModule } from '@angular-mdl/datepicker';
+import { MdlPopoverModule } from '@angular-mdl/popover';
+import { MdlExpansionPanelModule } from '@angular-mdl/expansion-panel';
+import { MdlSelectModule } from '@angular-mdl/select';
+
+import { MdlFabMenuComponent } from './web-components/fab-menu/fab-menu.component';
+import { MdlFabMenuItemComponent } from './web-components/fab-menu/fab-menu-item.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,10 +31,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { TestProjectDetailsComponent } from './pages/test-project/test-project-details/test-project-details.component';
-import { TestSuiteListComponent } from './pages/test-suite/test-suite-list/test-suite-list.component';
 import { TestSuiteDetailsComponent } from './pages/test-suite/test-suite-details/test-suite-details.component';
 import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/test-case-details.component';
-
+import { FilesComponent } from './web-components/files/files.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +42,7 @@ import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/te
     SafeHtmlPipe,
     Html2TextPipe,
     TestProjectsOptionsPipe,
+    FileSizePipe,
     TestSpecificationListComponent,
     HomeComponent,
     LoginComponent,
@@ -39,15 +50,23 @@ import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/te
     TestProjectListComponent,
     LogoutComponent,
     TestProjectDetailsComponent,
-    TestSuiteListComponent,
     TestSuiteDetailsComponent,
-    TestCaseDetailsComponent
+    TestCaseDetailsComponent,
+    FilesComponent,
+    MdlFabMenuComponent,
+    MdlFabMenuItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     TreeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MdlModule,
+    MdlPopoverModule,
+    MdlExpansionPanelModule,
+    MdlDatePickerModule,
+    MdlSelectModule
   ],
   providers: [AuthGuard, LocalStorageService, TreeService],
   bootstrap: [AppComponent]

@@ -3,17 +3,17 @@ import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class TestProjectService {
+export class TestSuiteService {
 
   constructor(private http:Http) { }
-  async list(){
+  async getTestSuite(testSuiteId){
     //TODO change by environment url
-    const response = await this.http.get(`http://localhost:8080/api/testprojects`).toPromise();
+    const response = await this.http.get(`http://localhost:8080/api/testsuites/${testSuiteId}`).toPromise();
     return response.json();
   }
-  async getTestProject(testProjectId){
+  async getKeywords(testSuiteId){
     //TODO change by environment url
-    const response = await this.http.get(`http://localhost:8080/api/testprojects/${testProjectId}`).toPromise();
+    const response = await this.http.get(`http://localhost:8080/api/testsuites/${testSuiteId}/keywords`).toPromise();
     return response.json();
   }
 

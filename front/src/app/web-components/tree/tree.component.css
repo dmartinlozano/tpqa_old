@@ -5,6 +5,7 @@
 .tree {
     margin: 0;
     overflow: auto;
+    list-style-type: none;
 }
 
 /************************** TREE MENU NODE *************************/
