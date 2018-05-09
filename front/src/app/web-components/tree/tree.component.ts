@@ -160,34 +160,6 @@ export class TreeComponent implements OnInit {
        }
      }
      return nodes;
-   }
-
-   switchClick(event: MouseEvent, node: TreeNode): void {
-     event.stopPropagation();
-     event.preventDefault();
-     let target: any = event.target || event.currentTarget || event.srcElement;
-     let input = document.getElementsByTagName("input")[0];
-     if (input != null && !input.hasAttribute('disabled')) {
-       if (node.switchChecked == null || node.switchChecked == false) {
-         node.switchChecked = true;
-         if (this.switchOnChildren &&
-           node.children != null && node.children.length > 0) {
-           for (let child of node.children) {
-             child.switchChecked = false;
-             this.switchClick(event, child);
-           }
-         }
-       } else {
-         node.switchChecked = false;
-         if (this.switchOffChildren &&
-           node.children != null && node.children.length > 0) {
-           for (let child of node.children) {
-             child.switchChecked = true;
-             this.switchClick(event, child);
-           }
-         }
-       }
-     }
    };
 
   selectNode(node){

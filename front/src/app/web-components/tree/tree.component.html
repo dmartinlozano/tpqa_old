@@ -1,56 +1,29 @@
-<ul
+<mdl-list
     [ngClass]="{ 'tree': isRoot }"
-    class="demo-list-item mdl-list"
     [attr.data-collapsible]="collapsibleType">
   <ng-container *ngFor="let node of nodes">
-    <li>
-      <a
-        tree-node
-        class="waves-effect {{ color }}"
+      <mdl-list-item
+        class="cursor"
         [attr.level]="level"
         [style.padding-left]="getPaddingLeft()"
-        [style.padding-right]="getPaddingRight()"
-        [ngClass]="{ 'root-tree-node': isRoot }">
+        [style.padding-right]="getPaddingRight()">
         <ng-container [ngSwitch]="node.children?.length > 0">
           <!-- node has children -->
           <ng-container *ngSwitchCase="true">
-            <i
-              *ngIf="materialIcon"
-              class="material-icons"
-              style="font-size:24px; color:blue"
-              (click)="node.isExpanded = !node.isExpanded">{{ node.isExpanded ? "folder_open" : "folder" }}</i>
+            <mdl-icon (click)="node.isExpanded = !node.isExpanded">{{ node.isExpanded ? "folder_open" : "folder" }}</mdl-icon>
           </ng-container>
           <ng-container
             *ngSwitchCase="false">
-            <i
-              *ngIf="materialIcon"
-              class="material-icons"
-              style="font-size:24px; color:blue"
-              (click)="node.isExpanded = !node.isExpanded">{{ node.node_type_id !== 3 ? "folder" : "assignment" }}</i>
+            <mdl-icon (click)="node.isExpanded = !node.isExpanded">{{ node.node_type_id !== 3 ? "folder" : "assignment" }}</mdl-icon>
           </ng-container>
         </ng-container>
         <span (click)="selectNode(node)">{{ node.title }}</span>
-        <ng-container *ngIf="showSwitches">
-          <!-- Switch -->
-          <div class="switch right"
-            (click)="switchClick($event, node)">
-            <label>
-              {{ switchOffTitle }}
-              <input type="checkbox"
-                [checked]="node.switchChecked"
-                [disabled]="disableSwitches"/>
-              <span class="lever"></span>
-              {{ switchOnTitle }}
-            </label>
-          </div>
-        </ng-container>
-      </a>
+      </mdl-list-item>
       <ng-container
         *ngIf="(node.children?.length > 0 && !hideChildren) || (hideChildren && node.switchChecked)">
         <!-- node has children -->
         <div
-          tree-node-children
-          [@treeNodeChildrenState]="node.isExpanded.toString()">
+          tree-node-children [@treeNodeChildrenState]="node.isExpanded.toString()">
           <tpqa-tree
             [isRoot]="false"
             [level]="level + 1"
@@ -58,13 +31,10 @@
             [displayField]="displayField"
             [childrenField]="childrenField"
             [isExpandedField]="isExpandedField"
-            [fontAwesomeIcon]="fontAwesomeIcon"
             [materialIcon]="materialIcon"
             [expandedIcon]="expandedIcon"
             [collapsedIcon]="collapsedIcon"
             [icon]="icon"
-            [showSwitches]="showSwitches"
-            [disableSwitches]="disableChildren && !node.switchChecked"
             [switchOffTitle]="switchOffTitle"
             [switchOnTitle]="switchOnTitle"
             [switchOffChildren]="switchOffChildren"
@@ -74,6 +44,5 @@
           </tpqa-tree>
         </div>
       </ng-container>
-    </li>
   </ng-container>
-</ul>
+</mdl-list>
