@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let email = this.localStorageService.getItem('email');
-    if (email === null){
+    let username = this.localStorageService.getItem('username');
+    if (username === null){
       this.router.navigate(["/login"]);
     }else{
       let lastProjectId = this.localStorageService.getItem('lastProjectId');

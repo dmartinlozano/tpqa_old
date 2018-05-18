@@ -1,7 +1,4 @@
-html,
-body,
-.login-box {
-  position: relative;
-  top: 50%;
-  transform: translateY(50%);
+.card{
+  align-items: center;
+  justify-content: center;
 }

@@ -34,6 +34,8 @@
     "hoek": "5.0.3",
     "moment": "2.22.1",
     "mdi": "2.2.43",
+    "md5": "2.2.1",
+    "jwt-simple": "0.5.1",
     "@angular-mdl/core": "5.0.0",
     "@angular-mdl/popover": "5.0.0",
     "@angular-mdl/datepicker": "5.0.0",

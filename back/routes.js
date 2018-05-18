@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import Login from './api/login';
 import NodesHierarchy from './api/nodes_hierarchy';
 import TestProject from './api/test-project';
 import TestSuite from './api/test-suite';
@@ -7,6 +8,7 @@ import Attachments from './api/attachments';
 
 const routes = new Router();
 routes.get('/', NodesHierarchy.ok);
+routes.post('/login', Login.login);
 routes.get('/testspecifications/:testProjectId', NodesHierarchy.getTree);
 routes.get('/testprojects', TestProject.list);
 routes.get('/testprojects/:testProjectId', TestProject.details);
