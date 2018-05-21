@@ -1,16 +1,18 @@
 import { Router } from 'express';
-import Login from './api/login';
+import User from './api/user';
 import NodesHierarchy from './api/nodes_hierarchy';
 import TestProject from './api/test-project';
 import TestSuite from './api/test-suite';
 import TestCase from './api/test-case';
 import Attachments from './api/attachments';
+import AuthMiddleware from './middleware/auth.js';
 
 const routes = new Router();
 routes.get('/', NodesHierarchy.ok);
-routes.post('/login', Login.login);
+routes.post('/login', User.login);
+routes.post('/rights', User.rights);
 routes.get('/testspecifications/:testProjectId', NodesHierarchy.getTree);
-routes.get('/testprojects', TestProject.list);
+routes.get('/testprojects', AuthMiddleware.permissions("bartolo"), TestProject.list);
 routes.get('/testprojects/:testProjectId', TestProject.details);
 routes.get('/testsuites/:testSuiteId', TestSuite.details);
 routes.get('/attachments/:id', Attachments.list);

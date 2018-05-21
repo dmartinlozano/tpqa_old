@@ -36,6 +36,7 @@
     "mdi": "2.2.43",
     "md5": "2.2.1",
     "jwt-simple": "0.5.1",
+    "node-cache": "4.2.0",
     "@angular-mdl/core": "5.0.0",
     "@angular-mdl/popover": "5.0.0",
     "@angular-mdl/datepicker": "5.0.0",
