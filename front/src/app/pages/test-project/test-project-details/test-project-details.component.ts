@@ -17,7 +17,7 @@ export class TestProjectDetailsComponent implements OnInit {
     private testProjectService: TestProjectService
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.treeService.getNode().subscribe(node => {
       var _self = this;
       if (node.node_type_id === 1){

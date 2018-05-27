@@ -12,7 +12,7 @@
     "node": "=8.9.4"
   },
   "dependencies": {
-    "@angular/cli": "1.7.2",
+    "@angular/cli": "5.2.10",
     "@angular/common": "5.2.10",
     "@angular/forms": "5.2.10",
     "@angular/animations": "5.2.10",
@@ -36,6 +36,7 @@
     "mdi": "2.2.43",
     "md5": "2.2.1",
     "jwt-simple": "0.5.1",
+    "angular2-jwt-simple": "0.5.5",
     "node-cache": "4.2.0",
     "@angular-mdl/core": "5.0.0",
     "@angular-mdl/popover": "5.0.0",

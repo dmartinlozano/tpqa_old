@@ -1,7 +1,7 @@
 import { Component, Input, Output, OnInit} from '@angular/core';
 import { animate, transition, trigger, state, style} from '@angular/animations';
-
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+//import { HttpClient, HttpHeaders, HttpRequestOptions, HttpResponse} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 
 import { TreeNode } from './tree-node.model';
@@ -64,34 +64,11 @@ export class TreeComponent implements OnInit {
    @Input() level: number = 0;
 
    constructor(
-     private http: Http,
+     private http: HttpClient,
      private treeService: TreeService
    ) { }
 
    ngOnInit() {
-     //console.debug('ngOnInit()');
-     switch (true) {
-       case this.dataFile != null && this.nodes != null:
-         throw new Error('The \'dataFile\' option cannot be specified together with the \'nodes\' option');
-       case this.dataFile != null:
-         // load data from the specified file
-         let headers = new Headers({ 'Content-Type': 'application/json' });
-         let options = new RequestOptions({ headers: headers });
-
-         this.http.get(this.dataFile, options)
-           .map((res: Response) => res.json())
-           .catch(e => Observable.throw(e))
-           .subscribe(data => {
-             //console.debug('ngOnInit() first data');
-             this.nodes = data;
-             this.afterRootNodesReceived();
-           });
-         break;
-       case this.nodes != null:
-         //console.debug('ngOnInit() data');
-         this.afterRootNodesReceived();
-         break;
-     }
    }
 
    afterRootNodesReceived(): void {

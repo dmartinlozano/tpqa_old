@@ -9,7 +9,7 @@ import { TestSpecificationListComponent } from './pages/test-specification/test-
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 
 const routes: Routes = [
-    { path: '', component: LoginComponent, canActivate: [AuthGuard] },
+    { path: '', component: LoginComponent},
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },

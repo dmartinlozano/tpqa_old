@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SafeHtmlPipe } from './pipes/safehtml.pipe';
 import { Html2TextPipe } from './pipes/html2text.pipe';
 import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth/auth.guard'
+import { JwtInterceptor } from './auth/jwt.interceptor';
 import { NavbarComponent } from './web-components/navbar/navbar.component';
 import { TreeModule} from './web-components/tree/tree.module';
 import { TestSpecificationListComponent } from './pages/test-specification/test-specification-list/test-specification-list.component';
@@ -57,6 +59,7 @@ import { FilesComponent } from './web-components/files/files.component';
     MdlFabMenuItemComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     TreeModule,
@@ -68,7 +71,11 @@ import { FilesComponent } from './web-components/files/files.component';
     MdlDatePickerModule,
     MdlSelectModule
   ],
-  providers: [AuthGuard, LocalStorageService, TreeService],
+  providers: [{
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },AuthGuard, LocalStorageService, TreeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

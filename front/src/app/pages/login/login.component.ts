@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocalStorageService } from '../../auth/local-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from './login.service';
@@ -10,7 +10,7 @@ import { MdlSnackbarService } from '@angular-mdl/core';
   styleUrls: ['login.component.css'],
   providers: [LoginService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   username: string;
   password: string;
 
@@ -22,26 +22,24 @@ export class LoginComponent implements OnInit {
     private mdlSnackbarService: MdlSnackbarService
   ) { }
 
-  ngOnInit() {
-    //TODO check if token is expired.
-  }
-  login(){
-    this.loginService.login(this.username, this.password).then(token=>{
+  async login(){
+    try{
+      let response = await this.loginService.login(this.username, this.password);
       this.localStorageService.setItem("username",this.username);
-      this.localStorageService.setItem("token",token);
+      this.localStorageService.setItem("token",response.token);
       let lastProjectId = this.localStorageService.getItem('lastProjectId');
-      if (lastProjectId === null){
-        this.router.navigate([`/test-projects`]);
-      }else{
+      if (lastProjectId){
         this.router.navigate([`/test-specifications/${lastProjectId}`]);
+      }else{
+        this.router.navigate([`/test-projects`]);
       }
-    }).catch(err=>{
+    }catch(err){
+      console.error(err);
       this.mdlSnackbarService.showSnackbar({
         message: err.status+" "+err.statusText
       });
       this.localStorageService.removeItem("token");
-      console.error(err);
-    });
+    }
   }
 
 }

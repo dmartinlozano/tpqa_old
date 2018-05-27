@@ -20,11 +20,9 @@ export class TestProjectListComponent implements OnInit {
     private localStorageService: LocalStorageService
   ) { }
 
-  ngOnInit() {
-    var _self = this;
-    this.testProjectService.list().then(function(result){
-        _self.testProjects = result;
-    });
+  async ngOnInit() {
+    let result = await this.testProjectService.list();
+    this.testProjects = result;
   }
   change(testProjectId){
     this.localStorageService.setItem('lastProjectId', testProjectId);
