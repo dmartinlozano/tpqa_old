@@ -12,7 +12,7 @@
     "node": "=8.9.4"
   },
   "dependencies": {
-    "@angular/cli": "5.2.10",
+    "@angular/cli": "1.7.4",
     "@angular/common": "5.2.10",
     "@angular/forms": "5.2.10",
     "@angular/animations": "5.2.10",
@@ -46,7 +46,6 @@
     "@angular-mdl/select": "5.0.0"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
     "babel-eslint": "8.2.2",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-es2015": "6.24.1",
