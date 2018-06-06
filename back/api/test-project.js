@@ -40,6 +40,7 @@ class TestProject{
                            from testprojects as tp, nodes_hierarchy as nd
                            where tp.id = nd.id and tp.id=?`, [req.params.testProjectId], function (error, results, fields) {
                              if (error) return res.status(500).send(error);
+                             if (results.length === 0) return res.status(404).send("Not found");
                              return res.send(results[0]);
                            });
                          };

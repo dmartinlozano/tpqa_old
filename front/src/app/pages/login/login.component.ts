@@ -34,11 +34,12 @@ export class LoginComponent {
         this.router.navigate([`/test-projects`]);
       }
     }catch(err){
-      console.error(err);
+    /*  console.error(err);
       this.mdlSnackbarService.showSnackbar({
         message: err.status+" "+err.statusText
-      });
+      });*/
       this.localStorageService.removeItem("token");
+      throw err;
     }
   }
 

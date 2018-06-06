@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { SafeHtmlPipe } from './pipes/safehtml.pipe';
 import { Html2TextPipe } from './pipes/html2text.pipe';
 import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
 import { FileSizePipe } from './pipes/file-size.pipe';
 
-import { LocalStorageService } from './auth/local-storage.service'
+import { LocalStorageService } from './auth/local-storage.service';
+import { UIErrorHandler } from './auth/ui-error.handle';
 import { TreeService } from './web-components/tree/tree.service';
 
 import { MdlModule } from '@angular-mdl/core';
@@ -75,7 +77,7 @@ import { FilesComponent } from './web-components/files/files.component';
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    },AuthGuard, LocalStorageService, TreeService],
+    }, {provide: ErrorHandler, useClass: UIErrorHandler}, AuthGuard, LocalStorageService, TreeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -37,13 +37,12 @@ class AuthMiddleware{
 
       //check permissions by test project
       if (req.params.testProjectId){
-        //check if exists specific no rights over the testProject
-        if (role.testProjectsWithoutPermissions.find(x => x.testproject_id === req.params.testProjectId)){
+        if (role.testProjectsWithoutPermissions.find(x => x.testproject_id === parseInt(req.params.testProjectId))){
           return res.status(403).send({ message: `The user has not specific permissions for the testProjectid ${req.params.testProjectId}`});
         }
         //check if exists specific permissions over the testProject
         if (rightToCheck !== "NO_CHECK"){
-          let rightsByTestProject = role.rightsByTestProject.find(x => x.testproject_id === req.params.testProjectId && x.description === rightToCheck);
+          let rightsByTestProject = role.rightsByTestProject.find(x => x.testproject_id === parseInt(req.params.testProjectId) && x.description === rightToCheck);
           if (rightsByTestProject){
             next();
           }else{
