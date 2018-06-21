@@ -17,12 +17,13 @@ export class NavbarComponent {
     private localStorageService: LocalStorageService
   ) {
     this.username = this.localStorageService.getItem("username");
-    console.log("username:");
-    console.log(this.username);
   }
 
   listTestProject(){
     this.router.navigate(['/test-projects']);
+  }
+  users(){
+    this.router.navigate(['/users']);
   }
   logout(){
     this.router.navigate(['/logout']);

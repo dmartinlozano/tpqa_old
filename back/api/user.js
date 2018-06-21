@@ -35,5 +35,13 @@ class User{
                             return res.send(results);
                           });
                         };
+  list = async (req, res, next) => {
+    mysqlConnection.query(`select us.id, us.login, us.email, us.first, ro.description, us.last, us.active, us.creation_ts, us.expiration_date
+                            from users as us, roles as ro
+                            where us.role_id = ro.id;`, function (error, results, fields) {
+                             if (error) return res.status(500).send(error);
+                             return res.send(results);
+                           });
+                         };
 }
 export default new User();

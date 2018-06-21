@@ -1,0 +1,41 @@
+<mdl-card mdl-shadow="2" [style.width.%]="100">
+   <mdl-card-supporting-text [style.width.%]="97">
+     <table class="mdl-data-table" [style.width.%]="100">
+        <thead>
+          <tr>
+              <th>User</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Active</th>
+              <th>Creation Date</th>
+              <th>Expiration Date</th>
+              <th>Edit</th>
+              <th>Disable</th>
+          </tr>
+        </thead>
+
+        <tbody >
+          <tr *ngFor="let user of users">
+            <td (click)="details(user.id)" class="cursor">{{ user.login }}</td>
+            <td (click)="details(user.id)" class="cursor">{{ user.first }}</td>
+            <td (click)="details(user.id)" class="cursor">{{ user.last }}</td>
+            <td (click)="details(user.id)" class="cursor">{{ user.email }}</td>
+            <td (click)="details(user.id)" class="cursor">{{ user.description }}</td>
+            <td>
+              <i *ngIf="user.active === 1" class="material-icons" aria-hidden="true">check_circle</i>
+              <i *ngIf="user.active  === 0" class="material-icons" aria-hidden="true">remove_circle</i>
+            </td>
+            <td>{{ user.creation_ts |formatDate}}</td>
+            <td>{{ user.expiration_date |formatDate}}</td>
+            <td (click)="edit(user.id)" class="cursor"><i class="material-icons" aria-hidden="true">mode_edit</i></td>
+            <td (click)="delete(user.id)" class="cursor"><i class="material-icons" aria-hidden="true">delete</i></td>
+          </tr>
+        </tbody>
+     </table>
+   </mdl-card-supporting-text>
+</mdl-card>
+
+<tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true" (click)="console.log('new user')">
+</tpqa-fab-menu>

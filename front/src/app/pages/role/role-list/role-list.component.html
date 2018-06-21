@@ -1,0 +1,28 @@
+<mdl-card mdl-shadow="2" [style.width.%]="100">
+   <mdl-card-supporting-text [style.width.%]="97">
+     <table class="mdl-data-table" [style.width.%]="100">
+        <thead>
+          <tr>
+              <th>Role</th>
+              <th>Description</th>
+              <th>Edit</th>
+              <th>Duplicate</th>
+              <th>Delete</th>
+          </tr>
+        </thead>
+
+        <tbody >
+          <tr *ngFor="let role of roles">
+            <td (click)="details(role.id)" class="cursor">{{ role.description }}</td>
+            <td (click)="details(role.id)" class="cursor">{{ role.notes }}</td>
+            <td (click)="edit(role.id)" class="cursor"><i class="material-icons" aria-hidden="true">mode_edit</i></td>
+            <td (click)="duplicate(role.id)" class="cursor"><i class="material-icons" aria-hidden="true">flip_to_front</i></td>
+            <td (click)="delete(role.id)" class="cursor"><i class="material-icons" aria-hidden="true">delete</i></td>
+          </tr>
+        </tbody>
+     </table>
+   </mdl-card-supporting-text>
+</mdl-card>
+
+<tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true" (click)="alert('hola')">
+</tpqa-fab-menu>

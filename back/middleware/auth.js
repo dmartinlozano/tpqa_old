@@ -12,7 +12,7 @@ class AuthMiddleware{
         return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
       }
       let token = req.headers.authorization.split("Bearer ")[1];
-      let payload, userId, role;
+      let payload, userId, rights;
       if (!token) {
         return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
       }
@@ -29,24 +29,23 @@ class AuthMiddleware{
 
       //get roles
       try{
-        role = await RoleCache.getRole(userId);
+        rights = await RoleCache.getRole(userId);
       } catch( err ){
           console.log("Recover role from db")
-          role = await RoleCache.setRole(userId);
+          rights = await RoleCache.setRole(userId);
       }
 
       //check permissions by test project
       if (req.params.testProjectId){
-        if (role.testProjectsWithoutPermissions.find(x => x.testproject_id === parseInt(req.params.testProjectId))){
-          return res.status(403).send({ message: `The user has not specific permissions for the testProjectid ${req.params.testProjectId}`});
+        let rightsByProject = rights.filter(x => x.testproject_id === parseInt(req.params.testProjectId));
+        let projectWithoutPermissions = rightsByProject.find(x => x.tp_role_id === 3);
+        if (projectWithoutPermissions !== undefined){
+          return res.status(403).send({ message: `The user has not permissions for the testProjectid ${req.params.testProjectId}`});
         }
-        //check if exists specific permissions over the testProject
-        if (rightToCheck !== "NO_CHECK"){
-          let rightsByTestProject = role.rightsByTestProject.find(x => x.testproject_id === parseInt(req.params.testProjectId) && x.description === rightToCheck);
-          if (rightsByTestProject){
-            next();
-          }else{
-            return res.status(403).send({ message: `The user has not permissions for the testProjectid ${req.params.testProjectId} with role assigned`});
+        if (rightToCheck !== "VIEW_TEST_PROJECT" && rightsByProject.length>0){
+          let right = rightsByProject.find(x => x.tp_right_description.toUpperCase() === rightToCheck.toUpperCase());
+          if (right === undefined){
+            return res.status(403).send({ message: `The user has not permissions for the testProjectid ${req.params.testProjectId} with specific role assigned`});
           }
         }
       }
@@ -54,15 +53,13 @@ class AuthMiddleware{
       //TODO check permissions by testplan: como el bloque anterior
 
       //check global permissions
-      if (rightToCheck !== "NO_CHECK"){
-        let rights = role.rights.find(x => x.description === rightToCheck);
-        if (rights){
-          next();
-        }else{
-          return res.status(403).send({ message: `The user has not permissions for this action`});
+      if (rightToCheck !== "VIEW_TEST_PROJECT"){
+        let right = rights.find(x => x.global_right_description.toUpperCase() === rightToCheck.toUpperCase());
+        if (right === undefined){
+          return res.status(403).send({ message: `The user has not permissions`});
         }
       }
-      next();
+      return next();
     }
   }
 }

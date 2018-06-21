@@ -7,6 +7,7 @@ import { LogoutComponent } from './pages/logout/logout.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { TestSpecificationListComponent } from './pages/test-specification/test-specification-list/test-specification-list.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
+import { UserTabComponent } from './pages/user/user-tab/user-tab.component';
 
 const routes: Routes = [
     { path: '', component: LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'test-specifications/:testProjectId', component: TestSpecificationListComponent, canActivate: [AuthGuard] },
     { path: 'test-projects', component: TestProjectListComponent, canActivate: [AuthGuard] },
+    { path: 'users', component: UserTabComponent, canActivate: [AuthGuard] },
 
     // otherwise redirect to home
     { path: '**', redirectTo: 'login' }

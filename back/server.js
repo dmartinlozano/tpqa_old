@@ -47,21 +47,9 @@ mysqlConnection.connect(function (err){
   }
 });
 
-// node server running =========================================================
+// node server running
 app.listen(8080, function(){
   console.log(`Running server in mode ${env}!`);
 });
-
-// node server closing
-
-//do something when app is closing,
-process.on('exit', function(){mysqlConnection.end(); process.exit(0);});
-
-//catches ctrl+c event
-process.on('SIGINT', function(){mysqlConnection.end(); process.exit(0);});
-
-// catches "kill pid" (for example: nodemon restart)
-process.on('SIGUSR1', function(){mysqlConnection.end(); process.exit(0);});
-process.on('SIGUSR2', function(){mysqlConnection.end(); process.exit(0);});
 
 export default app;

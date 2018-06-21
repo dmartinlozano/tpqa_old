@@ -6,8 +6,7 @@ import { LoginService } from './login.service';
 @Component({
   selector: 'tpqa-login',
   templateUrl: 'login.component.html',
-  styleUrls: ['login.component.css'],
-  providers: [LoginService]
+  styleUrls: ['login.component.css']
 })
 export class LoginComponent {
   username: string;

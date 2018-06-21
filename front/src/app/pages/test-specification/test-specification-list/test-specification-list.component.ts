@@ -5,8 +5,7 @@ import { TestSpecificationService } from '../test-specification.service';
 @Component({
   selector: 'tpqa-test-specification-list',
   templateUrl: 'test-specification-list.component.html',
-  styles: [],
-  providers: [TestSpecificationService]
+  styles: []
 })
 export class TestSpecificationListComponent implements OnInit {
 

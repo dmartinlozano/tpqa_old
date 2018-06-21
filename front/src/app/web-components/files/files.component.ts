@@ -4,7 +4,6 @@ import { FilesService} from './files.service';
 @Component({
   selector: 'tpqa-files',
   templateUrl: './files.component.html',
-  providers: [FilesService],
   styles: ['./files.component.css']
 })
 export class FilesComponent implements OnInit {

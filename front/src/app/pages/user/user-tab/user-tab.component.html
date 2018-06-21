@@ -1,0 +1,21 @@
+<mdl-layout mdl-layout-fixed-header mdl-layout-header-seamed>
+    <mdl-layout-header>
+      <tpqa-navbar></tpqa-navbar>
+    </mdl-layout-header>
+  <mdl-layout-content>
+    <mdl-tabs mdl-ripple mdl-tab-active-index="0">
+      <mdl-tab-panel mdl-tab-panel-title="Users">
+         <tpqa-user-list></tpqa-user-list>
+      </mdl-tab-panel>
+      <mdl-tab-panel mdl-tab-panel-title="Roles">
+         <tpqa-role-list></tpqa-role-list>
+      </mdl-tab-panel>
+      <mdl-tab-panel mdl-tab-panel-title="Roles of Test Projects">
+         <tpqa-role-by-test-project></tpqa-role-by-test-project>
+      </mdl-tab-panel>
+      <mdl-tab-panel mdl-tab-panel-title="Roles of Test Plan">
+         Not available!
+      </mdl-tab-panel>
+   </mdl-tabs>
+  </mdl-layout-content>
+</mdl-layout>

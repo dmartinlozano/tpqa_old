@@ -7,10 +7,19 @@ import { SafeHtmlPipe } from './pipes/safehtml.pipe';
 import { Html2TextPipe } from './pipes/html2text.pipe';
 import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
 import { FileSizePipe } from './pipes/file-size.pipe';
+import { FormatDatePipe } from './pipes/format-date.pipe';
 
 import { LocalStorageService } from './auth/local-storage.service';
 import { UIErrorHandler } from './auth/ui-error.handle';
 import { TreeService } from './web-components/tree/tree.service';
+import { FilesService } from './web-components/files/files.service';
+import { UserService } from './pages/user/user.service';
+import { TestSpecificationService } from './pages/test-specification/test-specification.service';
+import { TestProjectService } from './pages/test-project/test-project.service';
+import { LoginService } from './pages/login/login.service';
+import { TestCaseService } from './pages/test-case/test-case.service';
+import { TestSuiteService } from './pages/test-suite/test-suite.service';
+import { RoleService } from './pages/role/role.service';
 
 import { MdlModule } from '@angular-mdl/core';
 import { MdlDatePickerModule } from '@angular-mdl/datepicker';
@@ -38,6 +47,11 @@ import { TestProjectDetailsComponent } from './pages/test-project/test-project-d
 import { TestSuiteDetailsComponent } from './pages/test-suite/test-suite-details/test-suite-details.component';
 import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/test-case-details.component';
 import { FilesComponent } from './web-components/files/files.component';
+import { UserListComponent } from './pages/user/user-list/user-list.component';
+import { UserTabComponent } from './pages/user/user-tab/user-tab.component';
+import { RoleListComponent } from './pages/role/role-list/role-list.component';
+import { RoleByTestProjectComponent } from './pages/role/role-by-test-project/role-by-test-project.component';
+import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-test-plan.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +61,7 @@ import { FilesComponent } from './web-components/files/files.component';
     Html2TextPipe,
     TestProjectsOptionsPipe,
     FileSizePipe,
+    FormatDatePipe,
     TestSpecificationListComponent,
     HomeComponent,
     LoginComponent,
@@ -58,7 +73,12 @@ import { FilesComponent } from './web-components/files/files.component';
     TestCaseDetailsComponent,
     FilesComponent,
     MdlFabMenuComponent,
-    MdlFabMenuItemComponent
+    MdlFabMenuItemComponent,
+    UserListComponent,
+    UserTabComponent,
+    RoleListComponent,
+    RoleByTestProjectComponent,
+    RoleByTestPlanComponent
   ],
   imports: [
     HttpClientModule,
@@ -77,7 +97,21 @@ import { FilesComponent } from './web-components/files/files.component';
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    }, {provide: ErrorHandler, useClass: UIErrorHandler}, AuthGuard, LocalStorageService, TreeService],
+    },
+    {provide: ErrorHandler, useClass: UIErrorHandler},
+    AuthGuard,
+    LocalStorageService,
+    TreeService,
+    TreeService,
+    FilesService,
+    UserService,
+    TestSpecificationService,
+    TestProjectService,
+    LoginService,
+    TestCaseService,
+    TestSuiteService,
+    RoleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

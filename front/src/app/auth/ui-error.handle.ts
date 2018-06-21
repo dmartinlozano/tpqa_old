@@ -14,7 +14,11 @@ export class UIErrorHandler extends ErrorHandler {
     this.zone.run(() => {
       if (error.rejection && error.rejection instanceof HttpErrorResponse) {
         if (error.rejection.error.message === undefined){
-          mdlSnackbarService.showSnackbar({message: error.rejection.status+" "+error.rejection.error});  
+          if (error.rejection.status === 0){
+            mdlSnackbarService.showSnackbar({message: "Lost connection"});
+          }else{
+            mdlSnackbarService.showSnackbar({message: error.rejection.status+" "+error.rejection.error});
+          }
         }else{
           mdlSnackbarService.showSnackbar({message: error.rejection.status+" "+error.rejection.error.message});
         }

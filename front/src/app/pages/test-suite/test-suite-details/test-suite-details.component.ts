@@ -5,8 +5,7 @@ import { TestSuiteService } from '../test-suite.service';
 @Component({
   selector: 'tpqa-test-suite-details',
   templateUrl: 'test-suite-details.component.html',
-  styleUrls: ['test-suite-details.component.css'],
-  providers: [TestSuiteService]
+  styleUrls: ['test-suite-details.component.css']
 })
 export class TestSuiteDetailsComponent implements OnInit {
 

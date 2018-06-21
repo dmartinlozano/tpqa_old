@@ -7,8 +7,7 @@ import { SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'tpqa-test-project-list',
   templateUrl: 'test-project-list.component.html',
-  styleUrls: ['test-project-list.component.css'],
-  providers: [TestProjectService]
+  styleUrls: ['test-project-list.component.css']
 })
 export class TestProjectListComponent implements OnInit {
 
@@ -21,8 +20,7 @@ export class TestProjectListComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    let result = await this.testProjectService.list();
-    this.testProjects = result;
+    this.testProjects = await this.testProjectService.list();
   }
   change(testProjectId){
     this.localStorageService.setItem('lastProjectId', testProjectId);

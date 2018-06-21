@@ -10,8 +10,7 @@ import { TestCaseStatusType } from '../types/test-case-satus.type';
 @Component({
   selector: 'tpqa-test-case-details',
   templateUrl: 'test-case-details.component.html',
-  styleUrls: ['test-case-details.component.css'],
-  providers: [TestCaseService]
+  styleUrls: ['test-case-details.component.css']
 })
 export class TestCaseDetailsComponent implements OnInit {
 
