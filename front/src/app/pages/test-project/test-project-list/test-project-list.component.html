@@ -55,4 +55,6 @@
 </mdl-layout>
 
 <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
+  <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="folder_open" label="New Test Project" (menu-clicked)="alert('we need to do something here')">
+  </tpqa-fab-menu-item>
 </tpqa-fab-menu>

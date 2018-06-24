@@ -42,11 +42,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
+import { TestProjectNewEditComponent } from './pages/test-project/test-project-new-edit/test-project-new-edit.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { TestProjectDetailsComponent } from './pages/test-project/test-project-details/test-project-details.component';
 import { TestSuiteDetailsComponent } from './pages/test-suite/test-suite-details/test-suite-details.component';
 import { TestCaseDetailsComponent } from './pages/test-case/test-case-details/test-case-details.component';
-import { FilesComponent } from './web-components/files/files.component';
+import { FilesListViewComponent } from './web-components/files/files-list-view/files-list-view.component';
 import { UserListComponent } from './pages/user/user-list/user-list.component';
 import { UserTabComponent } from './pages/user/user-tab/user-tab.component';
 import { RoleListComponent } from './pages/role/role-list/role-list.component';
@@ -69,9 +70,10 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     TestProjectListComponent,
     LogoutComponent,
     TestProjectDetailsComponent,
+    TestProjectNewEditComponent,
     TestSuiteDetailsComponent,
     TestCaseDetailsComponent,
-    FilesComponent,
+    FilesListViewComponent,
     MdlFabMenuComponent,
     MdlFabMenuItemComponent,
     UserListComponent,
@@ -112,6 +114,7 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     TestSuiteService,
     RoleService
   ],
+  entryComponents: [TestProjectNewEditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

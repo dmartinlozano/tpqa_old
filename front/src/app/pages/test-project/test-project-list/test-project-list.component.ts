@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TestProjectService } from '../test-project.service';
 import { LocalStorageService } from '../../../auth/local-storage.service';
+import { MdlDialogService, MdlDialogReference } from '@angular-mdl/core';
+import { TestProjectNewEditComponent} from '../test-project-new-edit/test-project-new-edit.component';
+import { Router } from '@angular/router';
 import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -15,24 +17,41 @@ export class TestProjectListComponent implements OnInit {
 
   constructor(
     private testProjectService: TestProjectService,
-    private router: Router,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private dialogService: MdlDialogService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
     this.testProjects = await this.testProjectService.list();
   }
+
   change(testProjectId){
     this.localStorageService.setItem('lastProjectId', testProjectId);
     this.router.navigate(['/test-specifications/'+testProjectId]);
   };
 
-  edit(testProjectId){
-    console.log("change: "+testProjectId);
-  };
+  async edit(testProjectId){
+    let testProject = await this.testProjectService.getTestProject(testProjectId);
+    await this.testProjectService.setTestProjectSelected(testProject);
+    let pDialog = this.dialogService.showCustomDialog({
+      component: TestProjectNewEditComponent,
+      isModal: true,
+      styles: {'width': '600px'},
+      clickOutsideToClose: true,
+      enterTransitionDuration: 400,
+      leaveTransitionDuration: 400
+    });/*.subscribe(dialogRef => {
+       dialogRef.onHide().subscribe(user => {
+         if (user){
+           this.userService.saveUser(user);
+         };
+       });
+    });*/
+  }
 
   delete(testProjectId){
-    console.log("delete: "+testProjectId);
+    alert("delete: "+testProjectId);
   };
 
 }

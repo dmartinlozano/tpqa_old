@@ -10,7 +10,7 @@
   </mdl-card>
 
 
-   <mdl-expansion-panel #panel>
+   <mdl-expansion-panel #panel [expanded]="true">
      <mdl-expansion-panel-header style="cursor">
        <mdl-expansion-panel-header-list-content (click)="panel.toggle()">
             <mdl-icon>attach_file</mdl-icon>  Attached files
@@ -18,19 +18,17 @@
      </mdl-expansion-panel-header>
      <mdl-expansion-panel-content>
        <mdl-expansion-panel-body>
-         <tpqa-files [id]="testSuite.id"></tpqa-files>
+         <tpqa-files-list-view [id]="testSuite.id"></tpqa-files-list-view>
        </mdl-expansion-panel-body>
      </mdl-expansion-panel-content>
    </mdl-expansion-panel>
 
    <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
-     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Suite" (menu-clicked)="alert('we need to do something here')">
-     </tpqa-fab-menu-item>
      <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="edit" label="Edit Test Suite" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
      <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="delete" label="Delete Test Suite" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
-     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Case" (menu-clicked)="alert('we need to do something here')">
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="assignment" label="New Test Case" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
    </tpqa-fab-menu>
   </div>

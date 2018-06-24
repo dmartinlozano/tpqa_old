@@ -21,6 +21,9 @@ export class LoginComponent {
 
   async login(){
     try{
+      if (!this.username || !this.password){
+        throw new Error("Complete username and password");
+      }
       let response = await this.loginService.login(this.username, this.password);
       this.localStorageService.setItem("username",this.username);
       this.localStorageService.setItem("token",response.token);

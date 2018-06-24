@@ -1,0 +1,16 @@
+<div class="mdl-dialog__title" *ngIf="testProjectSelected === null">New Test Project</div>
+<div class="mdl-dialog__title" *ngIf="testProjectSelected !== null">{{testProjectSelected.name}}</div>
+
+  <div class="mdl-dialog__content">
+			<p>
+        <mdl-textfield type="text" label="Name" [(ngModel)]="testProjectSelected.name" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Prefix" [(ngModel)]="testProjectSelected.prefix" floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Notes" [(ngModel)]="testProjectSelected.notes" floating-label></mdl-textfield>
+      </p>
+  </div>
+
+  <div class="mdl-dialog__actions">
+    <button mdl-button (click)="new()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple *ngIf="testProjectSelected === null">Save</button>
+    <button mdl-button (click)="edit()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple *ngIf="testProjectSelected !== null">Save</button>
+		<button mdl-button (click)="close()" mdl-ripple>Cancel</button>
+  </div>

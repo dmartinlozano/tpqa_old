@@ -9,7 +9,9 @@ export class UIErrorHandler extends ErrorHandler {
     super();
   }
 
-  handleError(error) {
+  async handleError(error) {
+    console.error(error);
+
     let mdlSnackbarService = this.injector.get(MdlSnackbarService);
     this.zone.run(() => {
       if (error.rejection && error.rejection instanceof HttpErrorResponse) {
@@ -22,6 +24,8 @@ export class UIErrorHandler extends ErrorHandler {
         }else{
           mdlSnackbarService.showSnackbar({message: error.rejection.status+" "+error.rejection.error.message});
         }
+      }else if (error.toString().indexOf("Uncaught (in promise)") !== -1){
+          mdlSnackbarService.showSnackbar({message: error.promise.__zone_symbol__value.message});
       }else{
         mdlSnackbarService.showSnackbar({message: error.message});
       }

@@ -9,8 +9,7 @@ class User{
   	return res.sendStatus(200);
   };
   login =  async (req, res, next) => {
-    var username = req.body.username;
-    mysqlConnection.query(`select * from users where login = ? and password=?`, [username, md5(req.body.password)], function (error, results, fields) {
+    mysqlConnection.query(`select * from users where login = ? and password=?`, [req.body.username, md5(req.body.password)], function (error, results, fields) {
                              if (error) return res.status(500).send(error);
                              if (results.length === 1){
                                let payload = {
@@ -27,10 +26,9 @@ class User{
                            });
                          };
   rights =  async (req, res, next) => {
-   var username = req.body.username;
    mysqlConnection.query(`select user.id, user.login, rr.right_id, ri.description
                           from users as user, rights as ri, role_rights as rr
-                          where user.id = ? and user.role_id =  rr.role_id and ri.id = rr.right_id;`, [username], function (error, results, fields) {
+                          where user.id = ? and user.role_id =  rr.role_id and ri.id = rr.right_id;`, [req.body.username], function (error, results, fields) {
                             if (error) return res.status(500).send(error);
                             return res.send(results);
                           });

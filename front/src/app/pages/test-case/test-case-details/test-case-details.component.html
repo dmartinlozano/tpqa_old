@@ -20,7 +20,7 @@
      </mdl-card-supporting-text>
   </mdl-card>
 
-  <mdl-expansion-panel #panel [expanded]="true">
+  <mdl-expansion-panel #panel [expanded]="true" *ngIf="stepsTableModel.data.length>0">
     <mdl-expansion-panel-header style="cursor">
       <mdl-expansion-panel-header-list-content (click)="panel.toggle()">
          <mdl-icon>description</mdl-icon>  Steps
@@ -42,12 +42,12 @@
      </mdl-expansion-panel-header>
      <mdl-expansion-panel-content>
        <mdl-expansion-panel-body>
-         <tpqa-files [id]="testCase.id"></tpqa-files>
+         <tpqa-files-list-view [id]="testCaseId"></tpqa-files-list-view>
        </mdl-expansion-panel-body>
      </mdl-expansion-panel-content>
    </mdl-expansion-panel>
 
-   <mdl-expansion-panel #panel3 [expanded]="true">
+   <mdl-expansion-panel #panel3 [expanded]="true" *ngIf="requirementsTableModel.data.length>0">
      <mdl-expansion-panel-header style="cursor">
        <mdl-expansion-panel-header-list-content (click)="panel3.toggle()">
           <mdl-icon>chrome_reader_mode</mdl-icon>  Requirements
@@ -60,7 +60,7 @@
      </mdl-expansion-panel-content>
    </mdl-expansion-panel>
 
-   <mdl-expansion-panel #panel4 [expanded]="true">
+   <mdl-expansion-panel #panel4 [expanded]="true" *ngIf="relatedTableModel.data.length>0">
      <mdl-expansion-panel-header style="cursor">
        <mdl-expansion-panel-header-list-content (click)="panel4.toggle()">
           <mdl-icon>link</mdl-icon>  Related
@@ -74,7 +74,15 @@
    </mdl-expansion-panel>
 
    <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
-     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Case" (menu-clicked)="alert('we need to do something here')">
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="assignment" label="New Test Case" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="edit" label="Edit Test Case" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="fiber_new" label="New version" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="flip_to_front" label="Duplicate" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="delete" label="Delete Test Case" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
    </tpqa-fab-menu>
   </div>

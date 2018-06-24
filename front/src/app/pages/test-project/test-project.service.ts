@@ -5,6 +5,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class TestProjectService {
 
+  testProjectSelected=null;
+
   constructor(private http:HttpClient) { }
   async list(): Promise<any>{
     //TODO change by environment url
@@ -15,4 +17,10 @@ export class TestProjectService {
     return await this.http.get(`http://localhost:8080/api/testprojects/${testProjectId}`).toPromise();
   }
 
+  getTestProjectSelected(){
+    return this.testProjectSelected;
+  }
+  setTestProjectSelected(testProject){
+    this.testProjectSelected=testProject;
+  }
 }

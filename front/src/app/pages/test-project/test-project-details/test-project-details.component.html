@@ -3,11 +3,11 @@
      <mdl-card-title>
        <h2 mdl-card-title-text>{{ testProject.name }}</h2>
      </mdl-card-title>
-     <mdl-card-supporting-text [innerHTML]="testProject.notes"></mdl-card-supporting-text>
+     <mdl-card-supporting-text  label="Description "#description [innerHTML]="testProject.notes"></mdl-card-supporting-text>
   </mdl-card>
 
 
-   <mdl-expansion-panel #panel>
+   <mdl-expansion-panel #panel [expanded]="true">
      <mdl-expansion-panel-header style="cursor">
        <mdl-expansion-panel-header-list-content (click)="panel.toggle()">
             <mdl-icon>attach_file</mdl-icon>  Attached files
@@ -15,19 +15,19 @@
      </mdl-expansion-panel-header>
      <mdl-expansion-panel-content>
        <mdl-expansion-panel-body>
-         <tpqa-files [id]="testProject.id"></tpqa-files>
+         <tpqa-files-list-view [id]="testProject.id"></tpqa-files-list-view>
        </mdl-expansion-panel-body>
      </mdl-expansion-panel-content>
    </mdl-expansion-panel>
 
    <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
-     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="add" label="New Test Project" (menu-clicked)="alert('we need to do something here')">
-     </tpqa-fab-menu-item>
      <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="edit" label="Edit Test Project" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
      <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="delete" label="Delete Test Project" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
      <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="file_download" label="Export Test Project" (menu-clicked)="alert('we need to do something here')">
+     </tpqa-fab-menu-item>
+     <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="folder_open" label="New Test Suite" (menu-clicked)="alert('we need to do something here')">
      </tpqa-fab-menu-item>
    </tpqa-fab-menu>
 </div>
