@@ -1,0 +1,238 @@
+<div class="ngx-toolbar" style="width: fit-content">
+      <div class="ngx-toolbar" style="width: fit-content">
+        <button mdl-button style="min-width: 33px;" (click)="triggerCommand('bold')" title="Bold" mdl-ripple>
+          <mdl-icon>format_bold</mdl-icon>
+        </button>
+        <button mdl-button style="min-width: 33px;" (click)="triggerCommand('italic')" title="Italic" mdl-ripple>
+          <mdl-icon>format_italic</mdl-icon>
+        </button>
+        <button mdl-button style="min-width: 33px;" (click)="triggerCommand('underline')" title="Italic" mdl-ripple>
+          <mdl-icon>format_underline</mdl-icon>
+        </button>
+        <button mdl-button style="min-width: 33px;" (click)="triggerCommand('strikeThrough')" title="Strikethrough" mdl-ripple>
+          <mdl-icon>format_strikethrough</mdl-icon>
+        </button>
+      </div>
+      <div class="ngx-toolbar" style="width: fit-content">
+
+        <mdl-select #fontSizeSelect label="Font size" [style.width.px]="50">
+             <mdl-option [value]="8">8</mdl-option>
+             <mdl-option [value]="9">9</mdl-option>
+             <mdl-option [value]="10">10</mdl-option>
+             <mdl-option [value]="11">11</mdl-option>
+             <mdl-option [value]="12">12</mdl-option>
+             <mdl-option [value]="14">14</mdl-option>
+             <mdl-option [value]="18">18</mdl-option>
+             <mdl-option [value]="24">24</mdl-option>
+             <mdl-option [value]="30">30</mdl-option>
+             <mdl-option [value]="36">36</mdl-option>
+         </mdl-select>
+         <button mdl-button style="min-width: 33px;" #formatColorButton (click)="fontColorPopover.toggle($event, formatColorButton)" title="Font color text" mdl-ripple>
+           <mdl-icon>format_color_text</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" #formatColorButton (click)="fontColorPopover.toggle($event, formatColorButton)" title="Font color fill" mdl-ripple>
+           <mdl-icon>format_color_fill</mdl-icon>
+         </button>
+      </div>
+
+       <div class="ngx-toolbar" style="width: fit-content">
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyLeft')" title="Justify Left" mdl-ripple>
+           <mdl-icon>format_align_left</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyCenter')" title="Justify Center" mdl-ripple>
+           <mdl-icon>format_align_center</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyRight')" title="Justify Right" mdl-ripple>
+           <mdl-icon>format_align_right</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyFull')" title="Justify Full" mdl-ripple>
+           <mdl-icon>format_align_justify</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('indent')" title="Indent" mdl-ripple>
+           <mdl-icon>format_indent_increase</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('outdent')" title="Outdent" mdl-ripple>
+           <mdl-icon>format_indent_decrease</mdl-icon>
+         </button>
+      </div>
+
+       <div class="ngx-toolbar" style="width: fit-content">
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('cut')" title="Cut" mdl-ripple>
+           <mdl-icon>format_paint</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('copy')" title="Copy" mdl-ripple>
+           <mdl-icon>format_paint</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('delete')" title="Delete" mdl-ripple>
+           <mdl-icon>delete</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('removeFormat')" title="Remove format" mdl-ripple>
+           <mdl-icon>format_clear</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('undo')" title="Undo" mdl-ripple>
+           <mdl-icon>undo</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('redo')" title="Redo" mdl-ripple>
+           <mdl-icon>redo</mdl-icon>
+         </button>
+       </div>
+
+       <div class="ngx-toolbar" style="width: fit-content">
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('paragraph')" title="Paragraph" mdl-ripple>
+           <mdl-icon>format_textdirection_l_to_r</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('blockquote')" title="Blockquote" mdl-ripple>
+           <mdl-icon>format_quote</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('removeBlockquote')" title="Remove Blockquote" mdl-ripple>
+           <mdl-icon>format_quote</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('horizontalLine')" title="Horizontal Line" mdl-ripple>
+           <mdl-icon>drag_handle</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('unorderedList')" title="Unordered List" mdl-ripple>
+           <mdl-icon>format_list_bulleted</mdl-icon>
+         </button>
+         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('orderedList')" title="Ordered List" mdl-ripple>
+           <mdl-icon>format_list_numbered</mdl-icon>
+         </button>
+       </div>
+       <div class="ngx-toolbar" style="width: fit-content">
+         <button #linkButton mdl-button style="min-width: 33px;" (click)="linkPopover.toggle($event, linkButton)" title="Link" mdl-ripple>
+           <mdl-icon>link</mdl-icon>
+         </button>
+         <button #unlinkButton mdl-button style="min-width: 33px;" (click)="triggerCommand('unlink')" title="Unlink" mdl-ripple>
+           <mdl-icon>link_off</mdl-icon>
+         </button>
+         <button #imageButton mdl-button style="min-width: 33px;" (click)="insertImagePopover.toggle($event, imageButton)" title="Image" mdl-ripple>
+           <mdl-icon>image</mdl-icon>
+         </button>
+         <button #videoButton mdl-button style="min-width: 33px;" (click)="insertVideoPopover.toggle($event, videoButton)" title="Video" mdl-ripple>
+           <mdl-icon>videocam</mdl-icon>
+         </button>
+       </div>
+</div>
+
+<mdl-popover #fontColorPopover mdl-popover-position="bottom-right" [hide-on-click]="true" [style.width.px]="300">
+  <button mdl-button mdl-button-type="icon" mdl-ripple style="color:blue"></button>
+</mdl-popover>
+
+<!-- URL Popover template -->
+<mdl-popover #linkPopover mdl-popover-position="top-left">
+  <form [formGroup]="urlForm" (ngSubmit)="urlForm.valid && insertLink()" autocomplete="off">
+    <div class="ngx-toolbar">
+      <p>
+        <mdl-textfield type="text" label="URL" [(ngModel)]="URLInput" formControlName="urlLink"  placeholder="URL" autofocus floating-label></mdl-textfield>
+      </p>
+      <p>
+        <mdl-textfield type="text" label="Text" [(ngModel)]="urlTextInput" formControlName="urlText"  placeholder="Text" autofocus floating-label></mdl-textfield>
+      </p>
+      <p>
+        <mdl-switch [(ngModel)]="urlNewTab" mdl-ripple formControlName="urlNewTab">Open in new tab</mdl-switch>
+      </p>
+      <p>
+        <button type="submit" mdl-button mdl-ripple>Submit</button>
+      </p>
+    </div>
+  </form>
+</mdl-popover>
+
+<!-- Image Uploader Popover template -->
+<mdl-popover #insertImagePopover mdl-popover-position="top-left">
+  <div class="ngx-toolbar imgc-ctnr">
+    <div class="imgc-topbar btn-ctnr">
+      <button mdl-button mdl-button-type="mini-fab" mdl-ripple [ngClass]="{active: isImageUploader}" (click)="isImageUploader = true">
+        <mdl-icon>cloud_upload</mdl-icon>
+      </button>
+      <button mdl-button mdl-button-type="mini-fab" mdl-ripple [ngClass]="{active: !isImageUploader}" (click)="isImageUploader = false">
+        <mdl-icon>link</mdl-icon>
+      </button>
+    </div>
+    <div class="imgc-ctnt is-image">
+      <div *ngIf="isImageUploader; else insertImageLink"> </div>
+      <div *ngIf="!isImageUploader; else imageUploder"> </div>
+      <ng-template #imageUploder>
+        <div class="ngx-insert-img-ph">
+          <p *ngIf="uploadComplete">Choose Image</p>
+          <p *ngIf="!uploadComplete">
+            <span>Uploading Image</span>
+            <br>
+            <span>{{ updloadPercentage }} %</span>
+          </p>
+          <div class="ngxe-img-upl-frm">
+            <input type="file" (change)="onFileChange($event)" accept="image/*" [disabled]="isUploading" [style.cursor]="isUploading ? 'not-allowed': 'allowed'">
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #insertImageLink>
+        <form class="extra-gt" [formGroup]="imageForm" (ngSubmit)="imageForm.valid && insertImage()" autocomplete="off">
+          <div class="form-group">
+            <mdl-textfield type="text" label="URL" [(ngModel)]="imageURLInput" formControlName="imageUrl"  placeholder="URL" autofocus floating-label></mdl-textfield>
+          </div>
+          <button type="submit" mdl-button mdl-ripple>Submit</button>
+        </form>
+      </ng-template>
+      <div class="progress" *ngIf="!uploadComplete">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" [ngClass]="{'bg-danger': updloadPercentage<20, 'bg-warning': updloadPercentage<50, 'bg-success': updloadPercentage>=100}"
+          [style.width.%]="updloadPercentage"></div>
+      </div>
+    </div>
+  </div>
+</mdl-popover>
+
+
+<!-- Insert Video Popover template -->
+<mdl-popover #insertVideoPopover mdl-popover-position="top-left">
+  <div class="ngx-toolbar imgc-ctnr">
+    <div class="imgc-ctnt is-image">
+      <form class="extra-gt" [formGroup]="videoForm" (ngSubmit)="videoForm.valid && insertVideo()" autocomplete="off">
+        <div class="form-group">
+          <mdl-textfield type="text" label="URL" [(ngModel)]="videoURLInput" formControlName="videoUrl"  placeholder="URL" autofocus floating-label></mdl-textfield>
+        </div>
+        <div class="row form-group">
+          <div class="col">
+            <mdl-textfield type="text" label="URL" [(ngModel)]="height" formControlName="height" pattern="-?[0-9]*(\.[0-9]+)?" error-msg="Height is not a number!"  placeholder="height (px)" autofocus floating-label></mdl-textfield>
+          </div>
+          <div class="col">
+            <mdl-textfield type="text" label="URL" [(ngModel)]="width" formControlName="width" pattern="-?[0-9]*(\.[0-9]+)?" error-msg="Width is not a number!"  placeholder="width (px)" autofocus floating-label></mdl-textfield>
+          </div>
+        </div>
+        <button type="submit" mdl-button mdl-ripple>Submit</button>
+      </form>
+    </div>
+  </div>
+</mdl-popover>
+
+<!-- Insert color template -->
+<mdl-popover #insertColorPopover>
+  <div class="ngxe-popover imgc-ctnr">
+    <div class="imgc-topbar two-tabs">
+      <span (click)="selectedColorTab ='textColor'" [ngClass]="{active: selectedColorTab ==='textColor'}">Text</span>
+      <span (click)="selectedColorTab ='backgroundColor'" [ngClass]="{active: selectedColorTab ==='backgroundColor'}">Background</span>
+    </div>
+    <div class="imgc-ctnt is-color extra-gt1">
+      <form autocomplete="off">
+        <div class="form-group">
+          <label for="hexInput" class="small">Hex Color</label>
+          <input type="text" class="form-control-sm" id="hexInput" name="hexInput" maxlength="7" placeholder="HEX Color" [(ngModel)]="hexColor"
+            >
+        </div>
+        <button type="button" class="btn-primary btn-sm btn" (click)="insertColor(hexColor, selectedColorTab)">Submit</button>
+      </form>
+    </div>
+  </div>
+</mdl-popover>
+
+<!-- font size template -->
+<ng-template #fontSizeTemplate>
+  <div class="ngxe-popover extra-gt1">
+    <form autocomplete="off">
+      <div class="form-group">
+        <label for="fontSize" class="small">Font Size</label>
+        <input type="text" class="form-control-sm" id="fontSize" name="fontSize" placeholder="Font size in px/rem" [(ngModel)]="fontSize"
+          >
+      </div>
+      <button type="button" class="btn-primary btn-sm btn" (click)="setFontSize(fontSize)">Submit</button>
+    </form>
+  </div>
+</ng-template>

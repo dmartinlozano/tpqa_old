@@ -5,7 +5,9 @@
 			<p>
         <mdl-textfield type="text" label="Name" [(ngModel)]="testProjectSelected.name" floating-label></mdl-textfield>
         <mdl-textfield type="text" label="Prefix" [(ngModel)]="testProjectSelected.prefix" floating-label></mdl-textfield>
-        <mdl-textfield type="text" label="Notes" [(ngModel)]="testProjectSelected.notes" floating-label></mdl-textfield>
+      </p>
+      <p>
+        <tpqa-wysiwyg name="Description" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="testProjectSelected.notes"></tpqa-wysiwyg>
       </p>
   </div>
 

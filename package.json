@@ -43,7 +43,8 @@
     "@angular-mdl/datepicker": "5.0.0",
     "@angular-mdl/expansion-panel": "5.0.0",
     "@angular-mdl/fab-menu": "5.0.0",
-    "@angular-mdl/select": "5.0.0"
+    "@angular-mdl/select": "5.0.0",
+    "ngx-bootstrap": "3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.2",

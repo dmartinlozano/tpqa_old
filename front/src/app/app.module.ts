@@ -37,6 +37,7 @@ import { AuthGuard } from './auth/auth.guard'
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { NavbarComponent } from './web-components/navbar/navbar.component';
 import { TreeModule} from './web-components/tree/tree.module';
+import { NgxEditorModule } from './web-components/wysiwyg/ngx-editor.module';
 import { TestSpecificationListComponent } from './pages/test-specification/test-specification-list/test-specification-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -93,7 +94,8 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     MdlPopoverModule,
     MdlExpansionPanelModule,
     MdlDatePickerModule,
-    MdlSelectModule
+    MdlSelectModule,
+    NgxEditorModule
   ],
   providers: [{
       provide: HTTP_INTERCEPTORS,

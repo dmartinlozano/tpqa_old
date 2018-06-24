@@ -1,0 +1,23 @@
+<mdl-expansion-panel [expanded]="false">
+  <mdl-expansion-panel-header>
+      <mdl-expansion-panel-header-list-content>{{name}}</mdl-expansion-panel-header-list-content>
+  </mdl-expansion-panel-header>
+  <mdl-expansion-panel-content>
+    <mdl-expansion-panel-body>
+      <div class="ngx-editor" id="ngxEditor" [style.width]="config['width']" [style.minWidth]="config['minWidth']" tabindex="0"
+        (focus)="onEditorFocus()">
+        <tpqa-wysiwyg-toolbar [config]="config" (execute)="executeCommand($event)"></tpqa-wysiwyg-toolbar>
+        <!-- text area -->
+        <div class="ngx-wrapper" #ngxWrapper>
+          <div class="ngx-editor-textarea" [attr.contenteditable]="config['editable']" (input)="onContentChange($event.target.innerHTML)"
+            [attr.translate]="config['translate']" [attr.spellcheck]="config['spellcheck']" [style.height]="config['height']" [style.minHeight]="config['minHeight']"
+            [style.resize]="Utils?.canResize(resizer)" (focus)="onTextAreaFocus()" (blur)="onTextAreaBlur()" #ngxTextArea></div>
+
+          <span class="ngx-editor-placeholder">{{ placeholder || config['placeholder'] }}</span>
+        </div>
+        <tpqa-wysiwyg-message></tpqa-wysiwyg-message>
+        <app-ngx-grippie *ngIf="resizer === 'stack'"></app-ngx-grippie>
+      </div>
+    </mdl-expansion-panel-body>
+  </mdl-expansion-panel-content>
+</mdl-expansion-panel>

@@ -37,7 +37,7 @@ export class TestProjectListComponent implements OnInit {
     let pDialog = this.dialogService.showCustomDialog({
       component: TestProjectNewEditComponent,
       isModal: true,
-      styles: {'width': '600px'},
+      styles: {'width': '800px'},
       clickOutsideToClose: true,
       enterTransitionDuration: 400,
       leaveTransitionDuration: 400
