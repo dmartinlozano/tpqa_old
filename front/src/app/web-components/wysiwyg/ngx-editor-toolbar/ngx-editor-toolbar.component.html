@@ -12,10 +12,8 @@
         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('strikeThrough')" title="Strikethrough" mdl-ripple>
           <mdl-icon>format_strikethrough</mdl-icon>
         </button>
-      </div>
-      <div class="ngx-toolbar" style="width: fit-content">
-
-        <mdl-select #fontSizeSelect label="Font size" [style.width.px]="50">
+            <div class="ngx-toolbar" style="width: fit-content">
+        <mdl-select #fontSizeSelect label="Font size" class="font-size-select">
              <mdl-option [value]="8">8</mdl-option>
              <mdl-option [value]="9">9</mdl-option>
              <mdl-option [value]="10">10</mdl-option>
@@ -30,7 +28,7 @@
          <button mdl-button style="min-width: 33px;" #formatColorButton (click)="fontColorPopover.toggle($event, formatColorButton)" title="Font color text" mdl-ripple>
            <mdl-icon>format_color_text</mdl-icon>
          </button>
-         <button mdl-button style="min-width: 33px;" #formatColorButton (click)="fontColorPopover.toggle($event, formatColorButton)" title="Font color fill" mdl-ripple>
+         <button mdl-button style="min-width: 33px;" #formatBackColorButton (click)="backFontColorPopover.toggle($event, formatBackColorButton)" title="Font color fill" mdl-ripple>
            <mdl-icon>format_color_fill</mdl-icon>
          </button>
       </div>
@@ -96,8 +94,7 @@
          <button mdl-button style="min-width: 33px;" (click)="triggerCommand('orderedList')" title="Ordered List" mdl-ripple>
            <mdl-icon>format_list_numbered</mdl-icon>
          </button>
-       </div>
-       <div class="ngx-toolbar" style="width: fit-content">
+              <div class="ngx-toolbar" style="width: fit-content">
          <button #linkButton mdl-button style="min-width: 33px;" (click)="linkPopover.toggle($event, linkButton)" title="Link" mdl-ripple>
            <mdl-icon>link</mdl-icon>
          </button>
@@ -113,19 +110,439 @@
        </div>
 </div>
 
-<mdl-popover #fontColorPopover mdl-popover-position="bottom-right" [hide-on-click]="true" [style.width.px]="300">
-  <button mdl-button mdl-button-type="icon" mdl-ripple style="color:blue"></button>
+<mdl-popover #fontColorPopover mdl-popover-position="bottom-right" [hide-on-click]="true" [style.width.px]="200">
+  <div class="ngx-toolbar" style="width: fit-content">
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#f9ebea" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f2d7d5"  ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e6b0aa"  ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d98880" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #cd6155" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #c0392b" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a93226" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #922b21" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7b241c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #641e16" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fdedec" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fadbd8" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f5b7b1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f1948a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ec7063" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e74c3c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #cb4335" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #b03a2e" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #943126" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #78281f" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f5eef8" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ebdef0" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d7bde2" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #c39bd3" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #af7ac5" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #9b59b6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #884ea0" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #76448a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #633974" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #512e5f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f4ecf7" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e8daef" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d2b4de" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #bb8fce" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a569bd" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #8e44ad" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7d3c98" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #6c3483" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #5b2c6f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #4a235a" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #eaf2f8" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d4e6f1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a9cce3" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7fb3d5" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #5499c7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2980b9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2471a3" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1f618d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1a5276" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #154360" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ebf5fb" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d6eaf8" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #aed6f1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #85c1e9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #5dade2" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #3498db" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2e86c1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2874a6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #21618c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1b4f72" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e8f8f5" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d1f2eb" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a3e4d7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #76d7c4" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #48c9b0" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1abc9c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #17a589" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #148f77" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #117864" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #0e6251" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e8f6f3" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d0ece7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a2d9ce" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #73c6b6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #45b39d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #16a085" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #138d75" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #117a65" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #0e6655" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #0b5345" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e9f7ef" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d4efdf" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a9dfbf" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7dcea0" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #52be80" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #27ae60" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #229954" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1e8449" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #196f3d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #145a32" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #eafaf1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d5f5e3" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #abebc6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #82e0aa" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #58d68d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2ecc71" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #28b463" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #239b56" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1d8348" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #186a3b" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fef9e7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fcf3cf" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f9e79f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f7dc6f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f4d03f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f1c40f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d4ac0d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #b7950b" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #9a7d0a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7d6608" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fef5e7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fdebd0" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fad7a0" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f8c471" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f5b041" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f39c12" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d68910" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #b9770e" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #9c640c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7e5109" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fdf2e9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fae5d3" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f5cba7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f0b27a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #eb984e" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e67e22" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ca6f1e" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #af601a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #935116" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #784212" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fbeee6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f6ddcc" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #edbb99" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e59866" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #dc7633" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d35400" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ba4a00" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a04000" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #873600" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #6e2c00" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fdfefe" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #fbfcfc" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f7f9f9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f4f6f7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f0f3f4" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ecf0f1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d0d3d4" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #b3b6b7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #979a9a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7b7d7d" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f8f9f9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f2f3f4" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e5e7e9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d7dbdd" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #cacfd2" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #bdc3c7" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #a6acaf" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #909497" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #797d7f" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #626567" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f4f6f6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #eaeded" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d5dbdb" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #bfc9ca" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #aab7b8" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #95a5a6" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #839192" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #717d7e" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #5f6a6a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #4d5656" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #f2f4f4" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #e5e8e8" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ccd1d1" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #b2babb" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #99a3a4" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #7f8c8d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #707b7c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #616a6b" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #515a5a" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #424949" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #ebedef" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d6dbdf" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #aeb6bf" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #85929e" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #5d6d7e" ></button>
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #34495e" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2e4053" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #283747" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #212f3c" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1b2631" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #eaecee" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #d5d8dc" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #abb2b9" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #808b96" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #566573" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #2c3e50" ></button>
+
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #273746" ></button>
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #212f3d" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #1c2833" ></button>
+
+     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color: #17202a" ></button>
+
 </mdl-popover>
+<!--backFontColorPopover-->
 
 <!-- URL Popover template -->
 <mdl-popover #linkPopover mdl-popover-position="top-left">
   <form [formGroup]="urlForm" (ngSubmit)="urlForm.valid && insertLink()" autocomplete="off">
     <div class="ngx-toolbar">
       <p>
-        <mdl-textfield type="text" label="URL" [(ngModel)]="URLInput" formControlName="urlLink"  placeholder="URL" autofocus floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="URL" [(ngModel)]="URLInput" formControlName="urlLink"  placeholder="URL" autofocus ></mdl-textfield>
       </p>
       <p>
-        <mdl-textfield type="text" label="Text" [(ngModel)]="urlTextInput" formControlName="urlText"  placeholder="Text" autofocus floating-label></mdl-textfield>
+        <mdl-textfield type="text" label="Text" [(ngModel)]="urlTextInput" formControlName="urlText"  placeholder="Text" autofocus ></mdl-textfield>
       </p>
       <p>
         <mdl-switch [(ngModel)]="urlNewTab" mdl-ripple formControlName="urlNewTab">Open in new tab</mdl-switch>
@@ -133,8 +550,7 @@
       <p>
         <button type="submit" mdl-button mdl-ripple>Submit</button>
       </p>
-    </div>
-  </form>
+      </form>
 </mdl-popover>
 
 <!-- Image Uploader Popover template -->
@@ -147,11 +563,8 @@
       <button mdl-button mdl-button-type="mini-fab" mdl-ripple [ngClass]="{active: !isImageUploader}" (click)="isImageUploader = false">
         <mdl-icon>link</mdl-icon>
       </button>
-    </div>
-    <div class="imgc-ctnt is-image">
-      <div *ngIf="isImageUploader; else insertImageLink"> </div>
-      <div *ngIf="!isImageUploader; else imageUploder"> </div>
-      <ng-template #imageUploder>
+        <div class="imgc-ctnt is-image">
+      <div *ngIf="isImageUploader; else insertImageLink">       <div *ngIf="!isImageUploader; else imageUploder">       <ng-template #imageUploder>
         <div class="ngx-insert-img-ph">
           <p *ngIf="uploadComplete">Choose Image</p>
           <p *ngIf="!uploadComplete">
@@ -161,23 +574,17 @@
           </p>
           <div class="ngxe-img-upl-frm">
             <input type="file" (change)="onFileChange($event)" accept="image/*" [disabled]="isUploading" [style.cursor]="isUploading ? 'not-allowed': 'allowed'">
-          </div>
-        </div>
-      </ng-template>
+                        </ng-template>
       <ng-template #insertImageLink>
         <form class="extra-gt" [formGroup]="imageForm" (ngSubmit)="imageForm.valid && insertImage()" autocomplete="off">
           <div class="form-group">
-            <mdl-textfield type="text" label="URL" [(ngModel)]="imageURLInput" formControlName="imageUrl"  placeholder="URL" autofocus floating-label></mdl-textfield>
-          </div>
-          <button type="submit" mdl-button mdl-ripple>Submit</button>
+            <mdl-textfield type="text" label="URL" [(ngModel)]="imageURLInput" formControlName="imageUrl"  placeholder="URL" autofocus ></mdl-textfield>
+                    <button type="submit" mdl-button mdl-ripple>Submit</button>
         </form>
       </ng-template>
       <div class="progress" *ngIf="!uploadComplete">
         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" [ngClass]="{'bg-danger': updloadPercentage<20, 'bg-warning': updloadPercentage<50, 'bg-success': updloadPercentage>=100}"
-          [style.width.%]="updloadPercentage"></div>
-      </div>
-    </div>
-  </div>
+          [style.width.%]="updloadPercentage">            </div>
 </mdl-popover>
 
 
@@ -187,20 +594,15 @@
     <div class="imgc-ctnt is-image">
       <form class="extra-gt" [formGroup]="videoForm" (ngSubmit)="videoForm.valid && insertVideo()" autocomplete="off">
         <div class="form-group">
-          <mdl-textfield type="text" label="URL" [(ngModel)]="videoURLInput" formControlName="videoUrl"  placeholder="URL" autofocus floating-label></mdl-textfield>
-        </div>
-        <div class="row form-group">
+          <mdl-textfield type="text" label="URL" [(ngModel)]="videoURLInput" formControlName="videoUrl"  placeholder="URL" autofocus ></mdl-textfield>
+                <div class="row form-group">
           <div class="col">
-            <mdl-textfield type="text" label="URL" [(ngModel)]="height" formControlName="height" pattern="-?[0-9]*(\.[0-9]+)?" error-msg="Height is not a number!"  placeholder="height (px)" autofocus floating-label></mdl-textfield>
-          </div>
-          <div class="col">
-            <mdl-textfield type="text" label="URL" [(ngModel)]="width" formControlName="width" pattern="-?[0-9]*(\.[0-9]+)?" error-msg="Width is not a number!"  placeholder="width (px)" autofocus floating-label></mdl-textfield>
-          </div>
-        </div>
-        <button type="submit" mdl-button mdl-ripple>Submit</button>
+            <mdl-textfield type="text" label="URL" [(ngModel)]="height" formControlName="height" pattern="-?[0-9]*(\.[0-9]+)?" error-msg="Height is not a number!"  placeholder="height (px)" autofocus ></mdl-textfield>
+                    <div class="col">
+            <mdl-textfield type="text" label="URL" [(ngModel)]="width" formControlName="width" pattern="-?[0-9]*(\.[0-9]+)?" error-msg="Width is not a number!"  placeholder="width (px)" autofocus ></mdl-textfield>
+                          <button type="submit" mdl-button mdl-ripple>Submit</button>
       </form>
-    </div>
-  </div>
+      </div>
 </mdl-popover>
 
 <!-- Insert color template -->
@@ -209,18 +611,15 @@
     <div class="imgc-topbar two-tabs">
       <span (click)="selectedColorTab ='textColor'" [ngClass]="{active: selectedColorTab ==='textColor'}">Text</span>
       <span (click)="selectedColorTab ='backgroundColor'" [ngClass]="{active: selectedColorTab ==='backgroundColor'}">Background</span>
-    </div>
-    <div class="imgc-ctnt is-color extra-gt1">
+        <div class="imgc-ctnt is-color extra-gt1">
       <form autocomplete="off">
         <div class="form-group">
           <label for="hexInput" class="small">Hex Color</label>
           <input type="text" class="form-control-sm" id="hexInput" name="hexInput" maxlength="7" placeholder="HEX Color" [(ngModel)]="hexColor"
             >
-        </div>
-        <button type="button" class="btn-primary btn-sm btn" (click)="insertColor(hexColor, selectedColorTab)">Submit</button>
+                <button type="button" class="btn-primary btn-sm btn" (click)="insertColor(hexColor, selectedColorTab)">Submit</button>
       </form>
-    </div>
-  </div>
+      </div>
 </mdl-popover>
 
 <!-- font size template -->
@@ -231,8 +630,7 @@
         <label for="fontSize" class="small">Font Size</label>
         <input type="text" class="form-control-sm" id="fontSize" name="fontSize" placeholder="Font size in px/rem" [(ngModel)]="fontSize"
           >
-      </div>
-      <button type="button" class="btn-primary btn-sm btn" (click)="setFontSize(fontSize)">Submit</button>
+            <button type="button" class="btn-primary btn-sm btn" (click)="setFontSize(fontSize)">Submit</button>
     </form>
   </div>
 </ng-template>

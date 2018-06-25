@@ -2,12 +2,8 @@
 @import "_buttons";
 @import "_forms";
 
-mdl-select{
-  width: 50px;
-}
-
-mdl-select.div{
-  width: 50px;
+.font-size-select > div{
+  width: 65px;
 }
 
 .ngx-toolbar {
