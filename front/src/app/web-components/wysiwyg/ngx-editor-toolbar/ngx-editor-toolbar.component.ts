@@ -38,6 +38,8 @@ export class NgxEditorToolbarComponent implements OnInit {
   /** show/hide image uploader */
   isImageUploader = false;
 
+  uploadFileText = "";
+
   /**
    * Editor configuration
    */
@@ -148,8 +150,11 @@ export class NgxEditorToolbarComponent implements OnInit {
     this.uploadComplete = false;
     this.isUploading = true;
 
+    //this.uploadFileText = name
+
     if (e.target.files.length > 0) {
       const file = e.target.files[0];
+      this.uploadFileText = file.name;
 
       try {
         this._commandExecutorService.uploadImage(file, this.config.imageEndPoint).subscribe(event => {

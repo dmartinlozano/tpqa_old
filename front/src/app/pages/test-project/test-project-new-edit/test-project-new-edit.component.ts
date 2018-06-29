@@ -1,5 +1,7 @@
-import { Component,  HostListener } from '@angular/core';
+import { Component,  HostListener, OnInit } from '@angular/core';
 import { TestProjectService } from '../test-project.service';
+import { IssueTrackerService } from '../../issue-tracker/issue-tracker.service';
+import { CodeTrackerService } from '../../code-tracker/code-tracker.service';
 import { MdlDialogReference } from '@angular-mdl/core';
 
 @Component({
@@ -7,16 +9,32 @@ import { MdlDialogReference } from '@angular-mdl/core';
   templateUrl: 'test-project-new-edit.component.html',
   styleUrls: []
 })
-export class TestProjectNewEditComponent {
+export class TestProjectNewEditComponent implements OnInit{
 
   testProjectSelected = null;
+  issueTrackers = null;
+  codeTrakers = null;
+  issueTrackerSelectedId = null;
+  codeTracersSelectedId = null;
 
   constructor(
-     private dialog: MdlDialogReference,
-     private testProjectService: TestProjectService
+     private dialog:  MdlDialogReference,
+     private testProjectService: TestProjectService,
+     private issueTracerService: IssueTrackerService,
+     private codeTracerService: CodeTrackerService
   ) {
+  }
+
+  async ngOnInit() {
     this.testProjectSelected = this.testProjectService.getTestProjectSelected();
-    console.log(this.testProjectSelected);
+
+    this.issueTrackers = await this.issueTracerService.list();
+    let issueTrackerOfTestProject = this.issueTrackers.find(x => x.testproject_id === this.testProjectSelected.id);
+    this.issueTrackerSelectedId = issueTrackerOfTestProject.id;
+
+    this.codeTrakers = await this.codeTracerService.list();
+    let codeTrackerOfTestProject = this.codeTrakers.find(x => x.testproject_id === this.testProjectSelected.id);
+    this.codeTracersSelectedId = codeTrackerOfTestProject.id;
   }
 
    new(){

@@ -5,7 +5,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { SafeHtmlPipe } from './pipes/safehtml.pipe';
 import { Html2TextPipe } from './pipes/html2text.pipe';
-import { TestProjectsOptionsPipe } from './pipes/test-projects-options.pipe';
+import { RequirementsTestProjectsOptionsPipe } from './pipes/test-projects-options/requirements.pipe';
+import { PriorityTestProjectsOptionsPipe } from './pipes/test-projects-options/priority.pipe';
+import { AutomationTestProjectsOptionsPipe } from './pipes/test-projects-options/automation.pipe';
+import { InventoryTestProjectsOptionsPipe } from './pipes/test-projects-options/inventory.pipe';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 
@@ -20,6 +23,8 @@ import { LoginService } from './pages/login/login.service';
 import { TestCaseService } from './pages/test-case/test-case.service';
 import { TestSuiteService } from './pages/test-suite/test-suite.service';
 import { RoleService } from './pages/role/role.service';
+import { CodeTrackerService} from './pages/code-tracker/code-tracker.service';
+import { IssueTrackerService} from './pages/issue-tracker/issue-tracker.service'
 
 import { MdlModule } from '@angular-mdl/core';
 import { MdlDatePickerModule } from '@angular-mdl/datepicker';
@@ -61,7 +66,10 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     NavbarComponent,
     SafeHtmlPipe,
     Html2TextPipe,
-    TestProjectsOptionsPipe,
+    RequirementsTestProjectsOptionsPipe,
+    PriorityTestProjectsOptionsPipe,
+    AutomationTestProjectsOptionsPipe,
+    InventoryTestProjectsOptionsPipe,
     FileSizePipe,
     FormatDatePipe,
     TestSpecificationListComponent,
@@ -114,7 +122,9 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     LoginService,
     TestCaseService,
     TestSuiteService,
-    RoleService
+    RoleService,
+    CodeTrackerService,
+    IssueTrackerService
   ],
   entryComponents: [TestProjectNewEditComponent],
   bootstrap: [AppComponent]

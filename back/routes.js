@@ -6,6 +6,8 @@ import TestProject from './api/test-project';
 import TestSuite from './api/test-suite';
 import TestCase from './api/test-case';
 import Attachments from './api/attachments';
+import IssueTracker from './api/issue-tracker';
+import CodeTracker from './api/code-tracker';
 import AuthMiddleware from './middleware/auth.js';
 
 const routes = new Router();
@@ -27,4 +29,6 @@ routes.get('/testcases/:testCaseId/related', TestCase.related);
 routes.get('/users', AuthMiddleware.permissions("MGT_USERS"), User.list);
 routes.get('/roles', AuthMiddleware.permissions("ROLE_MANAGEMENT"), Role.list);
 routes.get('/roles/testproject', AuthMiddleware.permissions("ROLE_MANAGEMENT"), Role.listByTestProject);
+routes.get('/issuetracker', AuthMiddleware.permissions("ISSUETRACKER_VIEW"), IssueTracker.list);
+routes.get('/codetracker', AuthMiddleware.permissions("CODETRACKER_VIEW"), CodeTracker.list);
 export default routes;
