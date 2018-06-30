@@ -30,11 +30,11 @@ export class TestProjectNewEditComponent implements OnInit{
 
     this.issueTrackers = await this.issueTracerService.list();
     let issueTrackerOfTestProject = this.issueTrackers.find(x => x.testproject_id === this.testProjectSelected.id);
-    this.issueTrackerSelectedId = issueTrackerOfTestProject.id;
+    if (issueTrackerOfTestProject) this.issueTrackerSelectedId = issueTrackerOfTestProject.id;
 
     this.codeTrakers = await this.codeTracerService.list();
     let codeTrackerOfTestProject = this.codeTrakers.find(x => x.testproject_id === this.testProjectSelected.id);
-    this.codeTracersSelectedId = codeTrackerOfTestProject.id;
+    if (codeTrackerOfTestProject) this.codeTracersSelectedId = codeTrackerOfTestProject.id;
   }
 
    new(){

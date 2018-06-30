@@ -2,53 +2,64 @@
 <div class="mdl-dialog__title" *ngIf="testProjectSelected !== null">{{testProjectSelected.name}}</div>
 
   <div class="mdl-dialog__content">
-		<div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--6-col">
-          <mdl-textfield type="text" label="Name" [(ngModel)]="testProjectSelected.name" floating-label></mdl-textfield>
-      </div>
-      <div class="mdl-cell mdl-cell--6-col">
-          <mdl-textfield type="text" label="Prefix" [(ngModel)]="testProjectSelected.prefix" floating-label></mdl-textfield>
-      </div>
-      <div class="mdl-cell mdl-cell--12-col">
-        <tpqa-wysiwyg name="Description" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="testProjectSelected.notes"></tpqa-wysiwyg>
-      </div>
-      <div class="mdl-cell mdl-cell--6-col">
-        <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|requirements">Requirements</mdl-checkbox>
-        <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|priority">Priority</mdl-checkbox>
-        <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|automation">Test automation</mdl-checkbox>
-      </div>
-      <div class="mdl-cell mdl-cell--6-col">
-        <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|inventory">Inventory</mdl-checkbox>
-        <mdl-checkbox [mdl-ripple]="true" [(ngModel)]="testProjectSelected.active">Active</mdl-checkbox>
-        <mdl-checkbox [mdl-ripple]="true" [(ngModel)]="testProjectSelected.is_public">Public</mdl-checkbox>
-      </div>
-      <div class="mdl-cell mdl-cell--6-col">
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col">
-            <mdl-switch [(ngModel)]="testProjectSelected.issue_tracker_enabled" mdl-ripple>Active</mdl-switch>
+    <mdl-tabs mdl-ripple mdl-tab-active-index="0">
+      <mdl-tab-panel  mdl-tab-panel-title="Description">
+    		<div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+              <mdl-textfield type="text" label="Name" [(ngModel)]="testProjectSelected.name" floating-label></mdl-textfield>
           </div>
-          <div class="mdl-cell mdl-cell--8-col">
-            <mdl-select [(ngModel)]="issueTrackerSelectedId" placeholder="Issue Tracker">
-              <mdl-option [value]></mdl-option>
-              <mdl-option *ngFor="let issueTracker of issueTrackers" [value]="issueTracker.id">{{issueTracker.name}}</mdl-option>
-            </mdl-select>
+          <div class="mdl-cell mdl-cell--6-col">
+              <mdl-textfield type="text" label="Prefix" [(ngModel)]="testProjectSelected.prefix" floating-label></mdl-textfield>
+          </div>
+          <div class="mdl-cell mdl-cell--12-col">
+            <tpqa-wysiwyg name="Description" [spellcheck]="true" [(ngModel)]="testProjectSelected.notes"></tpqa-wysiwyg>
           </div>
         </div>
-      </div>
-      <div class="mdl-cell mdl-cell--6-col">
+      </mdl-tab-panel>
+      <mdl-tab-panel  mdl-tab-panel-title="Options">
         <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col">
-            <mdl-switch [(ngModel)]="testProjectSelected.code_tracker_enabled" mdl-ripple>Active</mdl-switch>
+          <div class="mdl-cell mdl-cell--6-col">
+            <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|requirements">Requirements</mdl-checkbox>
+            <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|priority">Priority</mdl-checkbox>
+            <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|automation">Test automation</mdl-checkbox>
           </div>
-          <div class="mdl-cell mdl-cell--8-col">
-            <mdl-select [(ngModel)]="codeTracersSelectedId" placeholder="Code Tracker">
-              <mdl-option [value]></mdl-option>
-              <mdl-option *ngFor="let codeTraker of codeTrakers" [value]="codeTraker.id">{{codeTraker.name}}</mdl-option>
-            </mdl-select>
+          <div class="mdl-cell mdl-cell--6-col">
+            <mdl-checkbox [mdl-ripple]="true" [ngModel]="testProjectSelected.options|inventory">Inventory</mdl-checkbox>
+            <mdl-checkbox [mdl-ripple]="true" [(ngModel)]="testProjectSelected.active">Active</mdl-checkbox>
+            <mdl-checkbox [mdl-ripple]="true" [(ngModel)]="testProjectSelected.is_public">Public</mdl-checkbox>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--4-col">
+                <mdl-switch [(ngModel)]="testProjectSelected.issue_tracker_enabled" mdl-ripple>Active</mdl-switch>
+              </div>
+              <div class="mdl-cell mdl-cell--8-col">
+                <mdl-select [(ngModel)]="issueTrackerSelectedId" placeholder="Issue Tracker">
+                  <mdl-option [value]></mdl-option>
+                  <mdl-option *ngFor="let issueTracker of issueTrackers" [value]="issueTracker.id">{{issueTracker.name}}</mdl-option>
+                </mdl-select>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--4-col">
+                <mdl-switch [(ngModel)]="testProjectSelected.code_tracker_enabled" mdl-ripple>Active</mdl-switch>
+              </div>
+              <div class="mdl-cell mdl-cell--8-col">
+                <mdl-select [(ngModel)]="codeTracersSelectedId" placeholder="Code Tracker">
+                  <mdl-option [value]></mdl-option>
+                  <mdl-option *ngFor="let codeTraker of codeTrakers" [value]="codeTraker.id">{{codeTraker.name}}</mdl-option>
+                </mdl-select>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </mdl-tab-panel>
+        <mdl-tab-panel  mdl-tab-panel-title="Files">
+          <tpqa-files-list-view [id]="testProjectSelected.id" [style.width.%]="100" [editMode]="true"></tpqa-files-list-view>
+        </mdl-tab-panel>
+      </mdl-tabs>
   </div>
 
   <div class="mdl-dialog__actions">

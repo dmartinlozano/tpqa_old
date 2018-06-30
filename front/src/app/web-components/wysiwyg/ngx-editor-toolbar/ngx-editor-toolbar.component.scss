@@ -2,11 +2,15 @@
 @import "_buttons";
 @import "_forms";
 
-.font-size-select > div{
-  width: 65px;
+.mdl-select {
+  .mdl-list {
+    height: 145px;
+  }
 }
-.toolbar{
-  display: inline-block;
+
+.button-toolbar {
+  width: 54px;
+  min-width: initial;
 }
 .font-color{
   width:120px

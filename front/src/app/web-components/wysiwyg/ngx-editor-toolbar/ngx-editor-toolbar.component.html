@@ -1,121 +1,111 @@
 <mdl-card mdl-shadow="2" [style.width.%]="100">
-    <mdl-card-actions mdl-card-border class="toolbar">
-          <button mdl-button style="min-width: 33px;" (click)="triggerCommand('bold')" title="Bold" mdl-ripple>
-            <mdl-icon>format_bold</mdl-icon>
-          </button>
-          <button mdl-button style="min-width: 33px;" (click)="triggerCommand('italic')" title="Italic" mdl-ripple>
-            <mdl-icon>format_italic</mdl-icon>
-          </button>
-          <button mdl-button style="min-width: 33px;" (click)="triggerCommand('underline')" title="Italic" mdl-ripple>
-            <mdl-icon>format_underline</mdl-icon>
-          </button>
-          <button mdl-button style="min-width: 33px;" (click)="triggerCommand('strikeThrough')" title="Strikethrough" mdl-ripple>
-            <mdl-icon>format_strikethrough</mdl-icon>
-          </button>
-    </mdl-card-actions>
-    <mdl-card-actions mdl-card-border class="toolbar">
-          <mdl-select #fontSizeSelect label="Font size" class="font-size-select">
-               <mdl-option [value]="8" (click)="setFontSize('8px')">8</mdl-option>
-               <mdl-option [value]="9" (click)="setFontSize('9px')">9</mdl-option>
-               <mdl-option [value]="10" (click)="setFontSize('10px')">10</mdl-option>
-               <mdl-option [value]="11" (click)="setFontSize('11px')">11</mdl-option>
-               <mdl-option [value]="12" (click)="setFontSize('12px')">12</mdl-option>
-               <mdl-option [value]="14" (click)="setFontSize('15px')">14</mdl-option>
-               <mdl-option [value]="18" (click)="setFontSize('18px')">18</mdl-option>
-               <mdl-option [value]="24" (click)="setFontSize('25px')">24</mdl-option>
-               <mdl-option [value]="30" (click)="setFontSize('30px')">30</mdl-option>
-               <mdl-option [value]="36" (click)="setFontSize('36px')">36</mdl-option>
-           </mdl-select>
-           <button mdl-button style="min-width: 33px;" #formatColorButton (click)="fontColorPopover.toggle($event, formatColorButton)" title="Font color text" mdl-ripple>
-             <mdl-icon>format_color_text</mdl-icon>
+  <div class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell--stretch mdl-cell--5-col mdl-card__actions mdl-card--border">
+        <button mdl-button class="button-toolbar" (click)="triggerCommand('bold')" title="Bold" mdl-ripple>
+          <mdl-icon>format_bold</mdl-icon>
+        </button>
+        <button mdl-button class="button-toolbar" (click)="triggerCommand('italic')" title="Italic" mdl-ripple>
+          <mdl-icon>format_italic</mdl-icon>
+        </button>
+        <button mdl-button class="button-toolbar" (click)="triggerCommand('underline')" title="Italic" mdl-ripple>
+          <mdl-icon>format_underline</mdl-icon>
+        </button>
+        <button mdl-button class="button-toolbar" (click)="triggerCommand('strikeThrough')" title="Strikethrough" mdl-ripple>
+          <mdl-icon>format_strikethrough</mdl-icon>
+        </button>
+    </div>
+    <div class="mdl-cell--stretch mdl-cell--3-col mdl-card__actions mdl-card--border" style="height: 60px;">
+            <mdl-select #fontSizeSelect label="Font size">
+                 <mdl-option [value]="8" (click)="setFontSize('8px')">8</mdl-option>
+                 <mdl-option [value]="9" (click)="setFontSize('9px')">9</mdl-option>
+                 <mdl-option [value]="10" (click)="setFontSize('10px')">10</mdl-option>
+                 <mdl-option [value]="11" (click)="setFontSize('11px')">11</mdl-option>
+                 <mdl-option [value]="12" (click)="setFontSize('12px')">12</mdl-option>
+                 <mdl-option [value]="14" (click)="setFontSize('15px')">14</mdl-option>
+                 <mdl-option [value]="18" (click)="setFontSize('18px')">18</mdl-option>
+                 <mdl-option [value]="24" (click)="setFontSize('25px')">24</mdl-option>
+                 <mdl-option [value]="30" (click)="setFontSize('30px')">30</mdl-option>
+                 <mdl-option [value]="36" (click)="setFontSize('36px')">36</mdl-option>
+             </mdl-select>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col mdl-card__actions mdl-card--border">
+             <button mdl-button class="button-toolbar" #formatColorButton (click)="fontColorPopover.toggle($event, formatColorButton)" title="Font color text" mdl-ripple>
+               <mdl-icon>format_color_text</mdl-icon>
+             </button>
+             <button mdl-button class="button-toolbar" #formatBackColorButton (click)="backFontColorPopover.toggle($event, formatBackColorButton)" title="Font color fill" mdl-ripple>
+               <mdl-icon>format_color_fill</mdl-icon>
+             </button>
+    </div>
+  </div>
+  <div class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-cell--stretch mdl-cell--6-col mdl-card__actions mdl-card--border">
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('justifyLeft')" title="Justify Left" mdl-ripple>
+             <mdl-icon>format_align_left</mdl-icon>
            </button>
-           <button mdl-button style="min-width: 33px;" #formatBackColorButton (click)="backFontColorPopover.toggle($event, formatBackColorButton)" title="Font color fill" mdl-ripple>
-             <mdl-icon>format_color_fill</mdl-icon>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('justifyCenter')" title="Justify Center" mdl-ripple>
+             <mdl-icon>format_align_center</mdl-icon>
            </button>
-         </mdl-card-actions>
-         <mdl-card-actions mdl-card-border class="toolbar">
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyLeft')" title="Justify Left" mdl-ripple>
-           <mdl-icon>format_align_left</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyCenter')" title="Justify Center" mdl-ripple>
-           <mdl-icon>format_align_center</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyRight')" title="Justify Right" mdl-ripple>
-           <mdl-icon>format_align_right</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('justifyFull')" title="Justify Full" mdl-ripple>
-           <mdl-icon>format_align_justify</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('indent')" title="Indent" mdl-ripple>
-           <mdl-icon>format_indent_increase</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('outdent')" title="Outdent" mdl-ripple>
-           <mdl-icon>format_indent_decrease</mdl-icon>
-         </button>
-       </mdl-card-actions>
-       <mdl-card-actions mdl-card-border class="toolbar">
-
-
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('cut')" title="Cut" mdl-ripple>
-           <mdl-icon>format_paint</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('copy')" title="Copy" mdl-ripple>
-           <mdl-icon>format_paint</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('delete')" title="Delete" mdl-ripple>
-           <mdl-icon>delete</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('removeFormat')" title="Remove format" mdl-ripple>
-           <mdl-icon>format_clear</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('undo')" title="Undo" mdl-ripple>
-           <mdl-icon>undo</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('redo')" title="Redo" mdl-ripple>
-           <mdl-icon>redo</mdl-icon>
-         </button>
-       </mdl-card-actions>
-       <mdl-card-actions mdl-card-border class="toolbar">
-
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('paragraph')" title="Paragraph" mdl-ripple>
-           <mdl-icon>format_textdirection_l_to_r</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('blockquote')" title="Blockquote" mdl-ripple>
-           <mdl-icon>format_quote</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('removeBlockquote')" title="Remove Blockquote" mdl-ripple>
-           <mdl-icon>format_quote</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('horizontalLine')" title="Horizontal Line" mdl-ripple>
-           <mdl-icon>drag_handle</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('unorderedList')" title="Unordered List" mdl-ripple>
-           <mdl-icon>format_list_bulleted</mdl-icon>
-         </button>
-         <button mdl-button style="min-width: 33px;" (click)="triggerCommand('orderedList')" title="Ordered List" mdl-ripple>
-           <mdl-icon>format_list_numbered</mdl-icon>
-         </button>
-      </mdl-card-actions>
-      <mdl-card-actions mdl-card-border class="toolbar">
-         <button #linkButton mdl-button style="min-width: 33px;" (click)="linkPopover.toggle($event, linkButton)" title="Link" mdl-ripple>
-           <mdl-icon>link</mdl-icon>
-         </button>
-         <button #unlinkButton mdl-button style="min-width: 33px;" (click)="triggerCommand('unlink')" title="Unlink" mdl-ripple>
-           <mdl-icon>link_off</mdl-icon>
-         </button>
-         <button #imageButton mdl-button style="min-width: 33px;" (click)="insertImagePopover.toggle($event, imageButton)" title="Image" mdl-ripple>
-           <mdl-icon>image</mdl-icon>
-         </button>
-         <button #videoButton mdl-button style="min-width: 33px;" (click)="insertVideoPopover.toggle($event, videoButton)" title="Video" mdl-ripple>
-           <mdl-icon>videocam</mdl-icon>
-         </button>
-       </mdl-card-actions>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('justifyRight')" title="Justify Right" mdl-ripple>
+             <mdl-icon>format_align_right</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('justifyFull')" title="Justify Full" mdl-ripple>
+             <mdl-icon>format_align_justify</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('indent')" title="Indent" mdl-ripple>
+             <mdl-icon>format_indent_increase</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('outdent')" title="Outdent" mdl-ripple>
+             <mdl-icon>format_indent_decrease</mdl-icon>
+           </button>
+    </div>
+    <div class="mdl-cell--stretch mdl-cell--6-col mdl-card__actions mdl-card--border">
+          <button mdl-button class="button-toolbar" (click)="triggerCommand('cut')" title="Cut" mdl-ripple>
+             <mdl-icon>format_paint</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('copy')" title="Copy" mdl-ripple>
+             <mdl-icon>format_paint</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('delete')" title="Delete" mdl-ripple>
+             <mdl-icon>delete</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('removeFormat')" title="Remove format" mdl-ripple>
+             <mdl-icon>format_clear</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('undo')" title="Undo" mdl-ripple>
+             <mdl-icon>undo</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('redo')" title="Redo" mdl-ripple>
+             <mdl-icon>redo</mdl-icon>
+           </button>
+         </div>
+    </div>
+    <div class="mdl-grid mdl-grid--no-spacing">
+      <div class="mdl-cell--stretch mdl-card__actions mdl-card--border">
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('unorderedList')" title="Unordered List" mdl-ripple>
+             <mdl-icon>format_list_bulleted</mdl-icon>
+           </button>
+           <button mdl-button class="button-toolbar" (click)="triggerCommand('orderedList')" title="Ordered List" mdl-ripple>
+             <mdl-icon>format_list_numbered</mdl-icon>
+           </button>
+           <button #linkButton mdl-button class="button-toolbar" (click)="linkPopover.toggle($event, linkButton)" title="Link" mdl-ripple>
+             <mdl-icon>link</mdl-icon>
+           </button>
+           <button #unlinkButton mdl-button class="button-toolbar" (click)="triggerCommand('unlink')" title="Unlink" mdl-ripple>
+             <mdl-icon>link_off</mdl-icon>
+           </button>
+           <button #imageButton mdl-button class="button-toolbar" (click)="insertImagePopover.toggle($event, imageButton)" title="Image" mdl-ripple>
+             <mdl-icon>image</mdl-icon>
+           </button>
+           <button #videoButton mdl-button class="button-toolbar" (click)="insertVideoPopover.toggle($event, videoButton)" title="Video" mdl-ripple>
+             <mdl-icon>videocam</mdl-icon>
+           </button>
+    </div>
+  </div>
 </mdl-card>
-
 
 <mdl-popover #fontColorPopover mdl-popover-position="bottom-right" class="font-color">
   <mdl-card mdl-shadow="2" class="font-color">
-  <mdl-card-actions mdl-card-border class="toolbar">
+  <mdl-card-actions mdl-card-border>
     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#000000;" (click)="insertColor('#000000', 'textColor')"></button>
     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#000080;" (click)="insertColor('#000080', 'textColor')"></button>
     <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#0000FF;" (click)="insertColor('#0000FF', 'textColor')"></button>
@@ -138,7 +128,7 @@
 <!--backFontColorPopover-->
 <mdl-popover #backFontColorPopover mdl-popover-position="bottom-right" class="font-color">
   <mdl-card mdl-shadow="2" class="font-color">
-    <mdl-card-actions mdl-card-border class="toolbar">
+    <mdl-card-actions mdl-card-border>
       <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#000000;" (click)="insertColor('#000000', 'backgroundColor')"></button>
       <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#000080;" (click)="insertColor('#000080', 'backgroundColor')"></button>
       <button mdl-button mdl-button-type="icon" mdl-ripple style="background-color:#0000FF;" (click)="insertColor('#0000FF', 'backgroundColor')"></button>
@@ -161,7 +151,7 @@
 <!-- URL Popover template -->
 <mdl-popover #linkPopover mdl-popover-position="top-left" class="link">
   <mdl-card mdl-shadow="2" class="link">
-    <mdl-card-actions mdl-card-border class="toolbar">
+    <mdl-card-actions mdl-card-border>
     <form [formGroup]="urlForm" (ngSubmit)="urlForm.valid && insertLink()" autocomplete="off">
         <mdl-textfield type="text" label="URL" [(ngModel)]="URLInput" formControlName="urlLink"  placeholder="URL" autofocus ></mdl-textfield>
         <mdl-textfield type="text" label="Text" [(ngModel)]="urlTextInput" formControlName="urlText"  placeholder="Text" autofocus ></mdl-textfield>

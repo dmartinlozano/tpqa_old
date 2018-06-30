@@ -9,6 +9,7 @@ import { FilesService} from '../files.service';
 export class FilesListViewComponent implements OnChanges {
 
   @Input() id: string;
+  @Input() editMode: boolean = false;
   files = null;
 
   constructor(
