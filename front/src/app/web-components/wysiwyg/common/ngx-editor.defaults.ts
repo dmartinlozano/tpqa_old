@@ -11,7 +11,6 @@ export const ngxEditorConfig = {
     translate: 'yes',
     enableToolbar: true,
     showToolbar: true,
-    placeholder: 'Enter text here...',
     imageEndPoint: '',
     toolbar: [
         ['bold', 'italic', 'underline', 'strikeThrough', 'superscript', 'subscript'],

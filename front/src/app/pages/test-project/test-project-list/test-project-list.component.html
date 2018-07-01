@@ -33,8 +33,8 @@
                   <i *ngIf="testProject.issue_tracker_enabled  === 0" class="material-icons" aria-hidden="true">remove_circle</i>
                 </td>
                 <td>
-                  <i *ngIf="(testProject.options|requirements) === '1'?true:false" class="material-icons" aria-hidden="true">check_circle</i>
-                  <i *ngIf="(testProject.options|requirements) === '0'?true:false" class="material-icons" aria-hidden="true">remove_circle</i>
+                  <i *ngIf="(testProject.options|requirements) === 1?true:false" class="material-icons" aria-hidden="true">check_circle</i>
+                  <i *ngIf="(testProject.options|requirements) === 0?true:false" class="material-icons" aria-hidden="true">remove_circle</i>
                 </td>
                 <td>
                   <i *ngIf="testProject.active === 1" class="material-icons" aria-hidden="true">check_circle</i>
@@ -55,6 +55,6 @@
 </mdl-layout>
 
 <tpqa-fab-menu #mainFabMenu [alwaysShowTooltips]="true">
-  <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="folder_open" label="New Test Project" (menu-clicked)="alert('we need to do something here')">
+  <tpqa-fab-menu-item [fabMenu]="mainFabMenu" icon="folder_open" label="New Test Project" (menu-clicked)="new()">
   </tpqa-fab-menu-item>
 </tpqa-fab-menu>

@@ -1,0 +1,14 @@
+<div class="mdl-dialog__title">Edit file</div>
+<div class="mdl-dialog__content">
+    <mdl-textfield type="text" label="Title" [(ngModel)]="file.title" floating-label></mdl-textfield>
+    <mdl-textfield type="text" label="Description" [(ngModel)]="file.description" floating-label></mdl-textfield>
+    <mdl-textfield type="text" label="Name" [(ngModel)]="file.file_name" floating-label readonly="true"></mdl-textfield>
+    <mdl-textfield type="text" label="Size" [ngModel]="file.file_size |  fileSize:3" floating-label readonly="true"></mdl-textfield>
+    <mdl-textfield type="text" label="Type" [ngModel]="file.file_type" floating-label readonly="true"></mdl-textfield>
+    <mdl-textfield type="text" label="Added Date" [ngModel]="file.date_added | date:'yyyy-MM-dd HH:mm'" floating-label readonly="true"></mdl-textfield>
+</div>
+
+<div class="mdl-dialog__actions">
+  <button mdl-button (click)="edit()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>Save</button>
+		<button mdl-button (click)="close()" mdl-ripple>Cancel</button>
+</div>

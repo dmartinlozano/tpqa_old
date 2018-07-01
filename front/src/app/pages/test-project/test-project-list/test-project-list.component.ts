@@ -50,6 +50,24 @@ export class TestProjectListComponent implements OnInit {
     });*/
   }
 
+  async new(){
+    await this.testProjectService.setTestProjectSelected(null);
+    let pDialog = this.dialogService.showCustomDialog({
+      component: TestProjectNewEditComponent,
+      isModal: true,
+      styles: {'width': '800px'},
+      clickOutsideToClose: true,
+      enterTransitionDuration: 400,
+      leaveTransitionDuration: 400
+    });/*.subscribe(dialogRef => {
+       dialogRef.onHide().subscribe(user => {
+         if (user){
+           this.userService.saveUser(user);
+         };
+       });
+    });*/
+  }
+
   delete(testProjectId){
     alert("delete: "+testProjectId);
   };

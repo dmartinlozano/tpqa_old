@@ -5,6 +5,6 @@ export class InventoryTestProjectsOptionsPipe implements PipeTransform {
     constructor() {
     }
     transform(value: string) {
-        return value.match(/"inventoryEnabled";i:(.*?);/)[1];
+        return parseInt(value.match(/"inventoryEnabled";i:(.*?);/)[1]);
     }
 }

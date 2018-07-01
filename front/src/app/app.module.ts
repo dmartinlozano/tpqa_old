@@ -49,6 +49,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 import { TestProjectNewEditComponent } from './pages/test-project/test-project-new-edit/test-project-new-edit.component';
+import { FilesEditComponent } from './web-components/files/files-edit/files-edit.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { TestProjectDetailsComponent } from './pages/test-project/test-project-details/test-project-details.component';
 import { TestSuiteDetailsComponent } from './pages/test-suite/test-suite-details/test-suite-details.component';
@@ -80,6 +81,7 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     LogoutComponent,
     TestProjectDetailsComponent,
     TestProjectNewEditComponent,
+    FilesEditComponent,
     TestSuiteDetailsComponent,
     TestCaseDetailsComponent,
     FilesListViewComponent,
@@ -126,7 +128,7 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     CodeTrackerService,
     IssueTrackerService
   ],
-  entryComponents: [TestProjectNewEditComponent],
+  entryComponents: [TestProjectNewEditComponent, FilesEditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

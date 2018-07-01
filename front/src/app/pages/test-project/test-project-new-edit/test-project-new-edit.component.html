@@ -6,10 +6,10 @@
       <mdl-tab-panel  mdl-tab-panel-title="Description">
     		<div class="mdl-grid">
           <div class="mdl-cell mdl-cell--6-col">
-              <mdl-textfield type="text" label="Name" [(ngModel)]="testProjectSelected.name" floating-label></mdl-textfield>
+              <mdl-textfield type="text" label="Name" [(ngModel)]="testProjectSelected.name" floating-label required></mdl-textfield>
           </div>
           <div class="mdl-cell mdl-cell--6-col">
-              <mdl-textfield type="text" label="Prefix" [(ngModel)]="testProjectSelected.prefix" floating-label></mdl-textfield>
+              <mdl-textfield type="text" label="Prefix" [(ngModel)]="testProjectSelected.prefix" floating-label required></mdl-textfield>
           </div>
           <div class="mdl-cell mdl-cell--12-col">
             <tpqa-wysiwyg name="Description" [spellcheck]="true" [(ngModel)]="testProjectSelected.notes"></tpqa-wysiwyg>

@@ -5,6 +5,6 @@ export class PriorityTestProjectsOptionsPipe implements PipeTransform {
     constructor() {
     }
     transform(value: string) {
-        return value.match(/"testPriorityEnabled";i:(.*?);/)[1];
+        return parseInt(value.match(/"testPriorityEnabled";i:(.*?);/)[1]);
     }
 }

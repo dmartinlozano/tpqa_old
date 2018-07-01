@@ -1,4 +1,6 @@
 import { Component, Input, OnChanges  } from '@angular/core';
+import { MdlDialogService, MdlDialogReference } from '@angular-mdl/core';
+import { FilesEditComponent } from '../files-edit/files-edit.component';
 import { FilesService} from '../files.service';
 
 @Component({
@@ -13,11 +15,23 @@ export class FilesListViewComponent implements OnChanges {
   files = null;
 
   constructor(
-    private filesService: FilesService
+    private filesService: FilesService,
+    private dialogService: MdlDialogService
   ) {}
 
   async ngOnChanges() {
     this.filesService.list(this.id).then((files)=>{this.files=files;});
+  }
+  edit(file){
+    this.filesService.setFileSelected(file);
+    let pDialog = this.dialogService.showCustomDialog({
+      component: FilesEditComponent,
+      isModal: true,
+      styles: {'width': '500px'},
+      clickOutsideToClose: true,
+      enterTransitionDuration: 400,
+      leaveTransitionDuration: 400
+    });
   }
 
 }

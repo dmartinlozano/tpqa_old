@@ -5,6 +5,6 @@ export class AutomationTestProjectsOptionsPipe implements PipeTransform {
     constructor() {
     }
     transform(value: string) {
-        return value.match(/"automationEnabled";i:(.*?);/)[1];
+        return parseInt(value.match(/"automationEnabled";i:(.*?);/)[1]);
     }
 }

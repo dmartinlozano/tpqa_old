@@ -27,14 +27,27 @@ export class TestProjectNewEditComponent implements OnInit{
 
   async ngOnInit() {
     this.testProjectSelected = this.testProjectService.getTestProjectSelected();
+    if (this.testProjectSelected){
+      //edit if not null
+      this.issueTrackers = await this.issueTracerService.list();
+      let issueTrackerOfTestProject = this.issueTrackers.find(x => x.testproject_id === this.testProjectSelected.id);
+      if (issueTrackerOfTestProject) this.issueTrackerSelectedId = issueTrackerOfTestProject.id;
 
-    this.issueTrackers = await this.issueTracerService.list();
-    let issueTrackerOfTestProject = this.issueTrackers.find(x => x.testproject_id === this.testProjectSelected.id);
-    if (issueTrackerOfTestProject) this.issueTrackerSelectedId = issueTrackerOfTestProject.id;
-
-    this.codeTrakers = await this.codeTracerService.list();
-    let codeTrackerOfTestProject = this.codeTrakers.find(x => x.testproject_id === this.testProjectSelected.id);
-    if (codeTrackerOfTestProject) this.codeTracersSelectedId = codeTrackerOfTestProject.id;
+      this.codeTrakers = await this.codeTracerService.list();
+      let codeTrackerOfTestProject = this.codeTrakers.find(x => x.testproject_id === this.testProjectSelected.id);
+      if (codeTrackerOfTestProject) this.codeTracersSelectedId = codeTrackerOfTestProject.id;
+    }else{
+      //new if null
+      this.testProjectSelected={};
+      this.testProjectSelected.name=null;
+      this.testProjectSelected.prefix = null;
+      this.testProjectSelected.notes = null;
+      this.testProjectSelected.options= 'O:8:"stdClass":4:{s:19:"requirementsEnabled";i:1;s:19:"testPriorityEnabled";i:0;s:17:"automationEnabled";i:0;s:16:"inventoryEnabled";i:0;}'
+      this.testProjectSelected.active=0;
+      this.testProjectSelected.is_public=0;
+      this.testProjectSelected.issue_tracker_enabled=0;
+      this.testProjectSelected.code_tracker_enabled=0;
+    }
   }
 
    new(){

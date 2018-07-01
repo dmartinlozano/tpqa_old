@@ -5,9 +5,21 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class FilesService {
 
+  fileSelected = null;
+
   constructor(private http:HttpClient) { }
   async list(id): Promise<any>{
     //TODO change by environment url
     return await this.http.get(`http://localhost:8080/api/attachments/${id}`).toPromise();
   }
+
+  setFileSelected(file){
+    this.fileSelected = file;
+  }
+
+  getFileSelected(){
+    return this.fileSelected;
+  }
+
+
 }
