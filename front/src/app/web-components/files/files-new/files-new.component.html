@@ -1,0 +1,6 @@
+<button mdl-button mdl-button-type="mini-fab" mdl-ripple (click)="fileInput.click()" [disabled]="isUploading">
+  <mdl-icon>attach_file</mdl-icon>
+</button>
+<input type="file" [hidden]="true" [disabled]="isUploading" #fileInput (change)="onFileInput($event)">
+<mdl-textfield type="text" [(ngModel)]="uploadFileText" readonly ></mdl-textfield>
+<button mdl-button (click)="upload()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple [disabled]="uploadFileText === ''">Save</button>

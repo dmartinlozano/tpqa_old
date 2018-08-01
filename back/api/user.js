@@ -2,6 +2,8 @@ import md5 from 'md5';
 import jwt from 'jwt-simple';
 import moment from 'moment';
 import RoleCache from '../cache/role';
+import {isValidPassword} from '../validators/password';
+
 const JWT_SECRET = process.env.JWT_SECRET||'TPQA-MOLA-UN-MONTON';
 
 class User{
@@ -21,10 +23,35 @@ class User{
                               RoleCache.setRole(results[0].id);
                               return res.send({ token:token });
                              }else{
-                               return res.sendStatus(404);
+                               return res.status(404).send("User and password not found");
                              }
                            });
                          };
+
+  resetPassword =  async (req, res, next) => {
+    //check passwords
+    if (isValidPassword(req.body.oldPassword)) return res.status(500).send("Old Password is invalid");
+    if (isValidPassword(req.body.newPassword1)) return res.status(500).send("New Password is invalid");
+    if (req.body.newPassword1 !== req.body.newPassword2) return res.status(500).send("New Passwords are not equals");
+
+    mysqlConnection.query('update users set password=? where id = ?', [md5(req.body.newPassword), req.body.id],function (error, results, fields) {
+      if (error) reject(error);
+      return res.sendStatus(200);
+    });
+  };
+
+  checkIfExistsAdminUser = async(req,res,next)=>{
+    let countUsers = await new Promise((resolve,reject)=>{return resolve(this.count(req,res,next)) ;});
+    if (countUsers === 0){
+      req.body.login="admin";
+      req.body.newPassword =process.env.FIRST_ADMIN_PASSWORD;
+      req.body.role_id=8; //admin role
+      await new Promise((resolve,reject)=>{return this.create(req,res,next);});
+      console.log("admin user created for first time");
+      return;
+    };
+  };
+
   rights =  async (req, res, next) => {
    mysqlConnection.query(`select user.id, user.login, rr.right_id, ri.description
                           from users as user, rights as ri, role_rights as rr
@@ -41,5 +68,26 @@ class User{
                              return res.send(results);
                            });
                          };
+  count = async (req, res, next) => {
+    console.log("hola 1:");
+    console.log(res);
+     mysqlConnection.query(`select count(*) from users;`, function (error, results, fields) {
+                              if (error) return res.status(500).send(error);
+                              return res.send(results[0]);
+                            });
+                          };
+  create = async (req, res, next) => {
+    mysqlConnection.query(`insert into users posts set ?`,
+                            {login: req.body.login,
+                             password: md5(req.body.newPassword),
+                             role_id: req.body.role_id,
+                             active: 1
+                             },
+                          function (error, results, fields) {
+                             if (error) return res.status(500).send(error);
+                             return res.send(results);
+                           });
+                         };
+
 }
 export default new User();

@@ -42,7 +42,7 @@ export class TestProjectNewEditComponent implements OnInit{
       this.testProjectSelected.name=null;
       this.testProjectSelected.prefix = null;
       this.testProjectSelected.notes = null;
-      this.testProjectSelected.options= 'O:8:"stdClass":4:{s:19:"requirementsEnabled";i:1;s:19:"testPriorityEnabled";i:0;s:17:"automationEnabled";i:0;s:16:"inventoryEnabled";i:0;}'
+      this.testProjectSelected.options= 'O:8:"stdClass":4:{s:19:"requirementsEnabled";i:0;s:19:"testPriorityEnabled";i:0;s:17:"automationEnabled";i:0;s:16:"inventoryEnabled";i:0;}'
       this.testProjectSelected.active=0;
       this.testProjectSelected.is_public=0;
       this.testProjectSelected.issue_tracker_enabled=0;

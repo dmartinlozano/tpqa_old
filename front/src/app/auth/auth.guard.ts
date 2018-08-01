@@ -15,11 +15,12 @@ export class AuthGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         let token = this.localStorageService.getItem('token');
         if (token){
-          let payload = jwt.decode(token, 'TPQA-MOLA-UN-MONTON');
-          if (payload.exp <= moment().unix()) {
+          try{
+            jwt.decode(token, 'TPQA-MOLA-UN-MONTON');
+          }catch(e){
             this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-            return false;
-          };
+            throw e;
+          }
           return true;
         }else{
           // not logged in so redirect to login page with the return url

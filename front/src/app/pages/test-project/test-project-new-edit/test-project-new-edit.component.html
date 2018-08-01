@@ -31,7 +31,7 @@
           <div class="mdl-cell mdl-cell--6-col">
             <div class="mdl-grid">
               <div class="mdl-cell mdl-cell--4-col">
-                <mdl-switch [(ngModel)]="testProjectSelected.issue_tracker_enabled" mdl-ripple>Active</mdl-switch>
+                <mdl-switch [(ngModel)]="testProjectSelected.issue_tracker_enabled" mdl-ripple [disabled]="issueTrackers === undefined">Active</mdl-switch>
               </div>
               <div class="mdl-cell mdl-cell--8-col">
                 <mdl-select [(ngModel)]="issueTrackerSelectedId" placeholder="Issue Tracker">
@@ -44,7 +44,7 @@
           <div class="mdl-cell mdl-cell--6-col">
             <div class="mdl-grid">
               <div class="mdl-cell mdl-cell--4-col">
-                <mdl-switch [(ngModel)]="testProjectSelected.code_tracker_enabled" mdl-ripple>Active</mdl-switch>
+                <mdl-switch [(ngModel)]="testProjectSelected.code_tracker_enabled" mdl-ripple [disabled]="codeTraker === undefined">Active</mdl-switch>
               </div>
               <div class="mdl-cell mdl-cell--8-col">
                 <mdl-select [(ngModel)]="codeTracersSelectedId" placeholder="Code Tracker">

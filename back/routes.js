@@ -27,6 +27,8 @@ routes.get('/testcases/:testCaseId/keywords', TestCase.keywords);
 routes.get('/testcases/:testCaseId/requirements', TestCase.requirements);
 routes.get('/testcases/:testCaseId/related', TestCase.related);
 routes.get('/users', AuthMiddleware.permissions("MGT_USERS"), User.list);
+routes.get('/users/count', User.count);
+routes.get('/users/resetpassword', User.resetPassword);
 routes.get('/roles', AuthMiddleware.permissions("ROLE_MANAGEMENT"), Role.list);
 routes.get('/roles/testproject', AuthMiddleware.permissions("ROLE_MANAGEMENT"), Role.listByTestProject);
 routes.get('/issuetracker', AuthMiddleware.permissions("ISSUETRACKER_VIEW"), IssueTracker.list);

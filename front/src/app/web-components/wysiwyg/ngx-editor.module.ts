@@ -3,7 +3,6 @@ import { MdlModule } from '@angular-mdl/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //to delete:
-import { PopoverModule } from 'ngx-bootstrap';
 import { MdlPopoverModule } from '@angular-mdl/popover';
 import { MdlSelectModule } from '@angular-mdl/select';
 import { MdlExpansionPanelModule } from '@angular-mdl/expansion-panel';
@@ -15,9 +14,9 @@ import { MessageService } from './common/services/message.service';
 import { CommandExecutorService } from './common/services/command-executor.service';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MdlModule, MdlPopoverModule, MdlSelectModule, MdlExpansionPanelModule,PopoverModule.forRoot()],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MdlModule, MdlPopoverModule, MdlSelectModule, MdlExpansionPanelModule],
   declarations: [NgxEditorComponent, NgxGrippieComponent, NgxEditorMessageComponent, NgxEditorToolbarComponent],
-  exports: [NgxEditorComponent, PopoverModule],
+  exports: [NgxEditorComponent],
   providers: [CommandExecutorService, MessageService]
 })
 

@@ -31,7 +31,7 @@ class AuthMiddleware{
       try{
         rights = await RoleCache.getRole(userId);
       } catch( err ){
-          console.log("Recover role from db")
+          console.log("Recover role from db for user "+userId);
           rights = await RoleCache.setRole(userId);
       }
 

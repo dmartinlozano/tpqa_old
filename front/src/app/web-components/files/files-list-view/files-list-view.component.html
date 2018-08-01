@@ -1,3 +1,4 @@
+<tpqa-files-new [id]="id" [style.width.%]="100" *ngIf="editMode===true"></tpqa-files-new>
 <table class="mdl-data-table" *ngIf="files != null && files.length > 0">
    <thead>
      <tr>
@@ -9,23 +10,27 @@
          <th>Date added</th>
          <th *ngIf="editMode===true"></th>
          <th *ngIf="editMode===true"></th>
+         <th></th>
      </tr>
    </thead>
 
    <tbody >
      <tr *ngFor="let file of files">
-       <td (click)="change(file.id)" class="cursor">{{ file.title }}</td>
-       <td (click)="change(file.id)" class="cursor">{{ file.description }}</td>
-       <td class="cursor">{{ file.file_name }}</td>
-       <td class="cursor">{{ file.file_size |  fileSize:3 }}</td>
-       <td class="cursor">{{ file.file_type }}</td>
-       <td class="cursor">{{ file.date_added | date:'yyyy-MM-dd HH:mm' }}</td>
+       <td class="cursor" (click)="file.url !== null && open(file.id)">{{ file.title }}</td>
+       <td class="cursor" (click)="file.url !== null && open(file.id)">{{ file.description }}</td>
+       <td class="cursor" (click)="file.url !== null && open(file.id)">{{ file.file_name }}</td>
+       <td class="cursor" (click)="file.url !== null && open(file.id)">{{ file.file_size |  fileSize:3 }}</td>
+       <td class="cursor" (click)="file.url !== null && open(file.id)">{{ file.file_type }}</td>
+       <td class="cursor" (click)="file.url !== null && open(file.id)">{{ file.date_added | date:'yyyy-MM-dd HH:mm' }}</td>
        <td (click)="edit(file)" class="cursor" *ngIf="editMode===true">
          <i class="material-icons" aria-hidden="true">mode_edit</i>
        </td>
        <td (click)="delete(file)" class="cursor" *ngIf="editMode===true">
-         <i class="material-icons" aria-hidden="true">delete</i
-           ></td>
+         <i class="material-icons" aria-hidden="true">delete</i>
+       </td>
+       <td (click)="import(file)" class="cursor" *ngIf="file.testlink_url !== null">
+         <i class="material-icons" aria-hidden="true">mode_edit</i>
+       </td>
      </tr>
    </tbody>
  </table>

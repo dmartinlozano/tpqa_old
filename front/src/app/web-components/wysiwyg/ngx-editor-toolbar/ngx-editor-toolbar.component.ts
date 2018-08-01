@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
-import { PopoverConfig } from 'ngx-bootstrap';
 import { CommandExecutorService } from '../common/services/command-executor.service';
 import { MessageService } from '../common/services/message.service';
 import * as Utils from '../common/utils/ngx-editor.utils';
@@ -9,8 +8,7 @@ import * as Utils from '../common/utils/ngx-editor.utils';
 @Component({
   selector: 'tpqa-wysiwyg-toolbar',
   templateUrl: './ngx-editor-toolbar.component.html',
-  styleUrls: ['./ngx-editor-toolbar.component.scss'],
-  providers: [PopoverConfig]
+  styleUrls: ['./ngx-editor-toolbar.component.scss']
 })
 
 export class NgxEditorToolbarComponent implements OnInit {
@@ -54,13 +52,10 @@ export class NgxEditorToolbarComponent implements OnInit {
    */
   @Output() execute: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private _popOverConfig: PopoverConfig,
+  constructor(
     private _formBuilder: FormBuilder,
     private _messageService: MessageService,
     private _commandExecutorService: CommandExecutorService) {
-    this._popOverConfig.outsideClick = true;
-    this._popOverConfig.placement = 'bottom';
-    this._popOverConfig.container = 'body';
   }
 
   /**

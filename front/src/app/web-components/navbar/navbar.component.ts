@@ -25,6 +25,9 @@ export class NavbarComponent {
   users(){
     this.router.navigate(['/users']);
   }
+  options(){
+    this.router.navigate(['/options']);
+  }
   logout(){
     this.router.navigate(['/logout']);
   }

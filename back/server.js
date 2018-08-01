@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import mysql from 'mysql';
 import cors from 'cors';
 import routes from './routes';
+import fs from 'fs';
+import User from './api/user';
 
 let app = express();
 var env = process.argv[1]||'dev';
@@ -12,12 +14,21 @@ let mysql_user = process.env.MYSQL_USER || 'root';
 let mysql_password = process.env.MYSQL_PASSWORD || '';
 let mysql_database = process.env.MYSQL_DATABASE || 'bitnami_testlink';
 
+global.testlink_url = process.env.TESTLINK_URL || 'http://localhost:80/';
+
 // Create link to Angular build directory
 if (__dirname.endsWith("dist")){
   app.use(express.static(__dirname + "/../../front/dist/"));
 }else{
   app.use(express.static(__dirname + "/../front/dist/"));
 }
+
+if (!process.env.TESTLINK_URL){
+  if (!fs.existsSync('/tpqa')) fs.mkdirSync('/tpqa');
+  if (!fs.existsSync('/tpqa/attachments')) fs.mkdirSync('/tpqa/attachments');
+}
+
+app.use("/attachments", express.static('/tpqa/attachments'));
 
 // set up our express application
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -44,6 +55,7 @@ mysqlConnection.connect(function (err){
      process.exit(1);
   }else{
     console.log("Mysql connection ok.");
+    User.checkIfExistsAdminUser();
   }
 });
 

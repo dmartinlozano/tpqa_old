@@ -50,6 +50,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TestProjectListComponent } from './pages/test-project/test-project-list/test-project-list.component';
 import { TestProjectNewEditComponent } from './pages/test-project/test-project-new-edit/test-project-new-edit.component';
 import { FilesEditComponent } from './web-components/files/files-edit/files-edit.component';
+import { FilesNewComponent} from './web-components/files/files-new/files-new.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { TestProjectDetailsComponent } from './pages/test-project/test-project-details/test-project-details.component';
 import { TestSuiteDetailsComponent } from './pages/test-suite/test-suite-details/test-suite-details.component';
@@ -60,6 +61,7 @@ import { UserTabComponent } from './pages/user/user-tab/user-tab.component';
 import { RoleListComponent } from './pages/role/role-list/role-list.component';
 import { RoleByTestProjectComponent } from './pages/role/role-by-test-project/role-by-test-project.component';
 import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-test-plan.component';
+import {OptionsComponent} from './pages/options/options.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,7 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     TestProjectDetailsComponent,
     TestProjectNewEditComponent,
     FilesEditComponent,
+    FilesNewComponent,
     TestSuiteDetailsComponent,
     TestCaseDetailsComponent,
     FilesListViewComponent,
@@ -91,7 +94,8 @@ import { RoleByTestPlanComponent } from './pages/role/role-by-test-plan/role-by-
     UserTabComponent,
     RoleListComponent,
     RoleByTestProjectComponent,
-    RoleByTestPlanComponent
+    RoleByTestPlanComponent,
+    OptionsComponent
   ],
   imports: [
     HttpClientModule,

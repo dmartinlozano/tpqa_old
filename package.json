@@ -44,7 +44,7 @@
     "@angular-mdl/expansion-panel": "5.0.0",
     "@angular-mdl/fab-menu": "5.0.0",
     "@angular-mdl/select": "5.0.0",
-    "ngx-bootstrap": "3.0.1"
+    "password-validator": "4.1.1"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
